@@ -1,14 +1,11 @@
 import React from 'react'
-import Filters from '../components/Filters'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import TodoBlock from './TodoBlock'
 
 const App = () => {
     return <div>
-        <AddTodo/>
-        <Filters/>
-        <VisibleTodoList/>
+        <TodoBlock />
     </div>
+
 }
 
 export default App

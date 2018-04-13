@@ -1,12 +1,21 @@
 import { actionTypes } from '../constants'
 
 let nextTodoId = 0
+let nextTodoBlockId = 0
 
-export const addTodo = text => {
+export const addTodo = (text, blockId) => {
     return {
+        id: `${blockId}-${nextTodoId++}`,
         type: actionTypes.ADD_TODO,
-        id: nextTodoId++,
+        blockId,
         text
+    }
+}
+
+export const addTodoBlock = () => {
+    return {
+        type: actionTypes.ADD_TODO_BLOCK,
+        id: nextTodoBlockId++,
     }
 }
 
@@ -24,9 +33,10 @@ export const toggleTodo = id => {
     }
 }
 
-export const setVisibilityFilter = filter => {
+export const setVisibilityFilter = (filter, blockId) => {
     return {
         type: actionTypes.SET_VISIBILITY_FILTER,
-        filter
+        filter,
+        blockId
     }
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import PropTypes from "prop-types";
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, blockId }) => {
     let input = ''
 
     return (
@@ -11,7 +12,8 @@ let AddTodo = ({ dispatch }) => {
                 onSubmit={e => {
                     e.preventDefault()
                     if (input.value.trim()) {
-                        dispatch(addTodo(input.value))
+                        console.log(blockId)
+                        dispatch(addTodo(input.value, blockId))
                         input.value = ''
                     }
                 }}
@@ -23,6 +25,10 @@ let AddTodo = ({ dispatch }) => {
             </form>
         </div>
     )
+}
+
+AddTodo.propTypes = {
+    blockId: PropTypes.number.isRequired
 }
 
 export default connect()(AddTodo)

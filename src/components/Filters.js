@@ -1,21 +1,26 @@
 import React from 'react'
 import FilterButton from '../containers/FilterButton'
 import { visibilityFilters } from '../constants'
+import PropTypes from "prop-types";
 
-const Filters = () => (
+const Filters = ({ blockId }) => (
     <p>
         <span>Show:</span>
         {' '}
-        <FilterButton filter={visibilityFilters.SHOW_ALL}>
+        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_ALL}>
             All
         </FilterButton>
-        <FilterButton filter={visibilityFilters.SHOW_ACTIVE}>
+        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_ACTIVE}>
             Active
         </FilterButton>
-        <FilterButton filter={visibilityFilters.SHOW_COMPLETED}>
+        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_COMPLETED}>
             Completed
         </FilterButton>
     </p>
 )
+
+Filters.propTypes = {
+    blockId: PropTypes.number
+}
 
 export default Filters

@@ -3,14 +3,16 @@ import { setVisibilityFilter } from '../actions'
 import Button from '../components/Button'
 
 const mapStateToProps = (state, ownProps) => {
+    const todoBlock = state.todoBlocks.find(block => block.id === ownProps.blockId)
+
     return {
-        active: ownProps.filter === state.visibilityFilter
+        active: ownProps.filter === todoBlock.visibilityFilter
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
+        onClick: () => dispatch(setVisibilityFilter(ownProps.filter, ownProps.blockId))
     }
 }
 

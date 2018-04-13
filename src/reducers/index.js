@@ -2,22 +2,23 @@ import { combineReducers } from 'redux'
 import { visibilityFilters, actionTypes } from '../constants/index'
 const { SHOW_ALL } = visibilityFilters
 
-export const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return todos
-        case 'SHOW_COMPLETED':
-            return todos.filter(t => t.completed)
-        case 'SHOW_ACTIVE':
-            return todos.filter(t => !t.completed)
+const initialTodoBlock = (id) => {
+    return {
+        id,
+        visibilityFilter: SHOW_ALL
     }
 }
 
-const visibilityFilter = (state = SHOW_ALL, action) => {
+const todoBlocks = (state = [], action) => {
     switch (action.type) {
+        case actionTypes.ADD_TODO_BLOCK:
+            return [
+                ...state,
+                initialTodoBlock(action.id)
+            ]
         case actionTypes.SET_VISIBILITY_FILTER:
-            return action.filter
-        default :
+            return state.map(block => block.id === action.blockId ? {...block, visibilityFilter: action.filter} : block)
+        default:
             return state
     }
 }
@@ -29,6 +30,7 @@ const todos = (state = [], action) => {
                 ...state,
                 {
                     id: action.id,
+                    blockId: action.blockId,
                     text: action.text,
                     completed: false
                 }
@@ -43,9 +45,8 @@ const todos = (state = [], action) => {
 }
 
 const todoApp = combineReducers({
-    visibilityFilter,
-    todos
+    todos,
+    todoBlocks
 })
-
 
 export default todoApp

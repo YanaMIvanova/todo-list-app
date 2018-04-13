@@ -6,6 +6,7 @@ export const visibilityFilters = {
 
 export const actionTypes = {
     ADD_TODO: 'ADD_TODO',
+    ADD_TODO_BLOCK: 'ADD_TODO_BLOCK',
     TOGGLE_TODO: 'TOGGLE_TODO',
     REMOVE_TODO: 'REMOVE_TODO',
     SET_VISIBILITY_FILTER: 'SET_VISIBILITY_FILTER',

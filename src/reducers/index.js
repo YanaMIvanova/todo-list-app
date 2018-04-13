@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import { visibilityFilters, actionTypes } from '../constants/index'
-import undoable, { includeAction } from 'redux-undo'
 const { SHOW_ALL } = visibilityFilters
 
 export const getVisibleTodos = (todos, filter) => {
@@ -45,13 +44,8 @@ const todos = (state = [], action) => {
 
 const todoApp = combineReducers({
     visibilityFilter,
-    todos: undoable(todos, {
-        filter: includeAction([
-            actionTypes.ADD_TODO,
-            actionTypes.TOGGLE_TODO,
-            actionTypes.REMOVE_TODO,
-        ])
-    })
+    todos
 })
+
 
 export default todoApp

@@ -11,7 +11,7 @@ const Todo = ({toggleTodo, removeTodo, completed, text, id}) => {
             {text}
         </li>
         <div>
-            <button onClick={() => toggleTodo(id)}>Mark as done</button>
+            <button onClick={() => toggleTodo(id)}>{!completed ? "Mark as completed" : "Mark as active"}</button>
             &nbsp;
             <button onClick={() => removeTodo(id)}>Delete</button>
         </div>

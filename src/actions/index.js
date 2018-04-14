@@ -26,6 +26,13 @@ export const removeTodo = id => {
     }
 }
 
+export const removeTodoBlock = id => {
+    return {
+        type: actionTypes.REMOVE_TODO_BLOCK,
+        id,
+    }
+}
+
 export const toggleTodo = id => {
     return {
         type: actionTypes.TOGGLE_TODO,

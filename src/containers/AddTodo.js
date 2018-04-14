@@ -12,7 +12,6 @@ let AddTodo = ({ dispatch, blockId }) => {
                 onSubmit={e => {
                     e.preventDefault()
                     if (input.value.trim()) {
-                        console.log(blockId)
                         dispatch(addTodo(input.value, blockId))
                         input.value = ''
                     }

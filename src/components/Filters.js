@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Filters = ({ blockId }) => (
     <p>
         <span>Show:</span>
-        {' '}
+        &nbsp;
         <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_ALL}>
             All
         </FilterButton>

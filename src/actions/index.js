@@ -1,7 +1,7 @@
 import { actionTypes } from '../constants'
 
-let nextTodoId = 0
-let nextTodoBlockId = 0
+let nextTodoId = 1
+let nextTodoBlockId = 1
 
 export const addTodo = (text, blockId) => {
     return {

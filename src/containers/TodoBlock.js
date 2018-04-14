@@ -5,24 +5,25 @@ import VisibleTodoList from './VisibleTodoList'
 import Filters from '../components/Filters'
 import AddTodoBlock from '../components/AddTodoBlock'
 import TodoBlockHeader from '../components/TodoBlockHeader'
-import { blocksSelector } from '../reducers'
-import { removeTodoBlock, selectTodoBlock } from "../actions";
+import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
+import { removeTodoBlock, setCurrentTodoBlock } from "../actions";
 
 class TodoBlock extends Component {
-    handleRemoveBlock = id => {
+    handleRemoveBlock = id => event => {
         const { onClick } = this.props
+        event.stopPropagation()
 
         onClick(id)
     }
 
-    handleSelectBlock = id => {
+    handleSelectBlock = id => event => {
         const { selectTodoBlock } = this.props
 
         selectTodoBlock(id)
     }
 
     render() {
-        const { blocks } = this.props
+        const { blocks, currentBlockId } = this.props
 
         return (
             <div
@@ -46,11 +47,11 @@ class TodoBlock extends Component {
                         >
                             <TodoBlockHeader
                                 title={block.title}
-                                removeTodoBlock={() => this.handleRemoveBlock(block.id)}
-                                selectTodoBlock={() => this.handleSelectBlock(block.id)}
+                                removeTodoBlock={this.handleRemoveBlock(block.id)}
+                                selectTodoBlock={this.handleSelectBlock(block.id)}
                             />
                             {
-                                block.selected && (
+                                currentBlockId === block.id && (
                                     <Fragment>
                                         <AddTodo blockId={block.id}/>
                                         <Filters blockId={block.id}/>
@@ -67,16 +68,15 @@ class TodoBlock extends Component {
     }
 }
 
-const mapStateToProps = state => (
-     {
-        blocks: blocksSelector(state)
-     }
-)
+const mapStateToProps = state => ({
+    blocks: blocksSelector(state),
+    currentBlockId: currentTodoBlockIdSelector(state)
+})
 
 const mapDispatchToProps = dispatch => {
     return {
         onClick: (id) => dispatch(removeTodoBlock(id)),
-        selectTodoBlock: (id) => dispatch(selectTodoBlock(id)),
+        selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
     }
 }
 

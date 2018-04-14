@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 import todos from './todosReducer'
-import todoBlocks from './todoBlocksReducer'
+import todoBlocksList, * as fromTodoBlocksList from './todoBlocksList'
 
 const todoApp = combineReducers({
     todos,
-    todoBlocks
+    todoBlocksList
 })
 
 export default todoApp
 
-export const blocksSelector = state => state.todoBlocks
+export const blocksSelector = state => fromTodoBlocksList.todoBlocksSelector(state.todoBlocksList)
+
+export const currentTodoBlockIdSelector = state => fromTodoBlocksList.currentTodoBlockIdSelector(state.todoBlocksList)

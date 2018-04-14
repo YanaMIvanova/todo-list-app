@@ -1,7 +1,6 @@
 import { actionTypes } from '../constants'
 
 let nextTodoId = 1
-let nextTodoBlockId = 1
 
 export const addTodo = (text, blockId) => {
     return {
@@ -14,8 +13,7 @@ export const addTodo = (text, blockId) => {
 
 export const addTodoBlock = () => {
     return {
-        type: actionTypes.ADD_TODO_BLOCK,
-        id: nextTodoBlockId++,
+        type: actionTypes.ADD_TODO_BLOCK
     }
 }
 
@@ -33,8 +31,8 @@ export const removeTodoBlock = id => {
     }
 }
 
-export const selectTodoBlock = id => ({
-    type: actionTypes.SELECT_TODO_BLOCK,
+export const setCurrentTodoBlock = id => ({
+    type: actionTypes.SET_CURRENT_TODO_BLOCK,
     id,
 })
 

@@ -1,17 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import Filters from '../components/Filters'
 import AddTodo from './AddTodo'
 import VisibleTodoList from './VisibleTodoList'
+import Filters from '../components/Filters'
 import AddTodoBlock from '../components/AddTodoBlock'
 import TodoBlockHeader from '../components/TodoBlockHeader'
-import { removeTodoBlock } from "../actions";
+import { blocksSelector } from '../reducers'
+import { removeTodoBlock, selectTodoBlock } from "../actions";
 
 class TodoBlock extends Component {
     handleRemoveBlock = id => {
         const { onClick } = this.props
 
         onClick(id)
+    }
+
+    handleSelectBlock = id => {
+        const { selectTodoBlock } = this.props
+
+        selectTodoBlock(id)
     }
 
     render() {
@@ -37,10 +44,20 @@ class TodoBlock extends Component {
                                 display: "inline-block"
                             }}
                         >
-                            <TodoBlockHeader title={block.title} removeTodoBlock={() => this.handleRemoveBlock(block.id)} />
-                            <AddTodo blockId={block.id}/>
-                            <Filters blockId={block.id}/>
-                            <VisibleTodoList blockId={block.id}/>
+                            <TodoBlockHeader
+                                title={block.title}
+                                removeTodoBlock={() => this.handleRemoveBlock(block.id)}
+                                selectTodoBlock={() => this.handleSelectBlock(block.id)}
+                            />
+                            {
+                                block.selected && (
+                                    <Fragment>
+                                        <AddTodo blockId={block.id}/>
+                                        <Filters blockId={block.id}/>
+                                        <VisibleTodoList blockId={block.id}/>
+                                    </Fragment>
+                                )
+                            }
                         </div>
                     ))
                 }
@@ -50,15 +67,16 @@ class TodoBlock extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        blocks: state.todoBlocks
-    }
-}
+const mapStateToProps = state => (
+     {
+        blocks: blocksSelector(state)
+     }
+)
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: (id) => dispatch(removeTodoBlock(id))
+        onClick: (id) => dispatch(removeTodoBlock(id)),
+        selectTodoBlock: (id) => dispatch(selectTodoBlock(id)),
     }
 }
 

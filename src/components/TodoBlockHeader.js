@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 class TodoBlockHeader extends Component {
     render() {
-        const { title, removeTodoBlock } = this.props
+        const { title, removeTodoBlock, selectTodoBlock } = this.props
 
         return <div
+            onClick={selectTodoBlock}
             style={{
                 marginBottom: "10px"
             }}
@@ -25,7 +26,8 @@ class TodoBlockHeader extends Component {
 
 TodoBlockHeader.propTypes = {
     title: PropTypes.string.isRequired,
-    removeTodoBlock: PropTypes.func.isRequired
+    removeTodoBlock: PropTypes.func.isRequired,
+    selectTodoBlock: PropTypes.func.isRequired
 }
 
 export default TodoBlockHeader

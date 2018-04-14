@@ -33,6 +33,11 @@ export const removeTodoBlock = id => {
     }
 }
 
+export const selectTodoBlock = id => ({
+    type: actionTypes.SELECT_TODO_BLOCK,
+    id,
+})
+
 export const toggleTodo = id => {
     return {
         type: actionTypes.TOGGLE_TODO,

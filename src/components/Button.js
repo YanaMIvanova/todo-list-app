@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ active, children, onClick }) => {
+const Button = ({ active, children, setVisibilityFilter }) => {
     return <button
-        onClick={onClick}
+        onClick={setVisibilityFilter}
         disabled={active}
         style={{
             marginLeft: '4px',
@@ -16,7 +16,7 @@ const Button = ({ active, children, onClick }) => {
 Button.propTypes = {
     active: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
-    removeTodoBlock: PropTypes.func.isRequired
+    setVisibilityFilter: PropTypes.func.isRequired
 }
 
 export default Button

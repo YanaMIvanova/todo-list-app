@@ -1,4 +1,5 @@
 import {actionTypes} from "../constants";
+import {currentTodoBlockIdSelector} from "./index";
 
 const todos = (state = [], action) => {
     switch (action.type) {
@@ -25,15 +26,17 @@ const todos = (state = [], action) => {
 
 export default todos
 
-export const getVisibleTodos = (todos, filter, blockId) => {
-    const filteredTodos = todos.filter(todo => todo.blockId === blockId)
+export const todosByBlockIdSelector = (state, id) => state.filter(todo => todo.blockId === id)
+
+export const visibleTodosSelector = (state, filter) => {
+    const todosByBlockId = todosByBlockIdSelector(state.todos, currentTodoBlockIdSelector(state))
 
     switch (filter) {
         case 'SHOW_ALL':
-            return filteredTodos
+            return todosByBlockId
         case 'SHOW_COMPLETED':
-            return filteredTodos.filter(t => t.completed)
+            return todosByBlockId.filter(t => t.completed)
         case 'SHOW_ACTIVE':
-            return filteredTodos.filter(t => !t.completed)
+            return todosByBlockId.filter(t => !t.completed)
     }
 }

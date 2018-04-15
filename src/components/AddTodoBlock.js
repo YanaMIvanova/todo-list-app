@@ -1,5 +1,5 @@
 import React from 'react'
-import { addTodoBlock } from '../actions'
+import { addTodoBlock } from '../actions/todoBlocks'
 import { connect } from "react-redux";
 
 const AddTodoBlock = ({ dispatch }) => (

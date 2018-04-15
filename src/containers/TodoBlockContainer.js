@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import AddTodoBlock from '../components/AddTodoBlock'
 import TodoBlock from '../components/TodoBlock'
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
-import { removeTodoBlock, setCurrentTodoBlock } from "../actions";
+import { removeTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
 
 class TodoBlockContainer extends Component {
     handleRemoveBlock = id => event => {

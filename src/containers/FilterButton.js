@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setVisibilityFilter } from '../actions'
+import { setVisibilityFilter } from '../actions/todos'
 import Button from '../components/Button'
 import { blocksSelector } from "../reducers";
 

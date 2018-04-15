@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo } from '../actions/todos'
 import PropTypes from "prop-types";
 
 let AddTodo = ({ dispatch, blockId }) => {

@@ -1,5 +1,5 @@
-import {actionTypes} from "../constants";
-import {currentTodoBlockIdSelector} from "./index";
+import { actionTypes } from "../constants";
+import { currentTodoBlockIdSelector } from "./index";
 
 const todos = (state = [], action) => {
     switch (action.type) {

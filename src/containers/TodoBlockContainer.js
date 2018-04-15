@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import AddTodoBlock from '../components/AddTodoBlock'
 import TodoBlock from '../components/TodoBlock'

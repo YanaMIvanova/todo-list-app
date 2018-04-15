@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import todos from './todosReducer'
+import todos from './todos'
 import todoBlocksList, * as fromTodoBlocksList from './todoBlocksList'
 
 const todoApp = combineReducers({

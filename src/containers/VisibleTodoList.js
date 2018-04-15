@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { toggleTodo, removeTodo } from '../actions'
 import TodoList from '../components/TodoList'
-import { getVisibleTodos } from '../reducers/todosReducer'
+import { getVisibleTodos } from '../reducers/todos'
 import {blocksSelector} from "../reducers";
 
 const mapStateToProps = (state, ownProps) => {

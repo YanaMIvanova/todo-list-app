@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onClick: () => dispatch(setVisibilityFilter(ownProps.filter, ownProps.blockId))
+        removeTodoBlock: () => dispatch(setVisibilityFilter(ownProps.filter, ownProps.blockId))
     }
 }
 

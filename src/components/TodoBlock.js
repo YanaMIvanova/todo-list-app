@@ -34,10 +34,10 @@ const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock }) => (
 )
 
 Filters.propTypes = {
-    currentBlockId: PropTypes.string,
-    block: PropTypes.object,
-    selectBlock: PropTypes.func,
-    removeBlock: PropTypes.func
+    currentBlockId: PropTypes.string.isRequired,
+    block: PropTypes.object.isRequired,
+    selectBlock: PropTypes.func.isRequired,
+    removeBlock: PropTypes.func.isRequired
 }
 
 

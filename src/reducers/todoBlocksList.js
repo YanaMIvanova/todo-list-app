@@ -27,10 +27,12 @@ const todosBlocks = (state = initialState, action) => {
         case actionTypes.REMOVE_TODO_BLOCK:
             return {
                 ...state,
-                currentTodoBlockId: state.currentTodoBlockId === action.id
-                    ? state.todoBlocksIds[0]
-                    : state.currentTodoBlockId,
                 todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.id),
+                currentTodoBlockId:  state.currentTodoBlockId === action.id
+                    ? state.currentTodoBlockId === state.todoBlocksIds[0]
+                        ? state.todoBlocksIds[1]
+                        : state.todoBlocksIds[0]
+                    : state.currentTodoBlockId,
                 todoBlocksById: (() => {
                     const {[action.id]: _actionid, ...rest} = state.todoBlocksById
                     return rest

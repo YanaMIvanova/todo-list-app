@@ -7,10 +7,10 @@ import { removeTodoBlock, setCurrentTodoBlock } from "../actions";
 
 class TodoBlockContainer extends Component {
     handleRemoveBlock = id => event => {
-        const { onClick } = this.props
+        const { removeTodoBlock } = this.props
         event.stopPropagation()
 
-        onClick(id)
+        removeTodoBlock(id)
     }
 
     handleSelectBlock = id => event => {
@@ -33,6 +33,7 @@ class TodoBlockContainer extends Component {
                 {
                     blocks.map(block =>
                         <TodoBlock
+                            key={block.id}
                             block={block}
                             currentBlockId={currentBlockId}
                             selectBlock={this.handleSelectBlock}
@@ -53,7 +54,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: (id) => dispatch(removeTodoBlock(id)),
+        removeTodoBlock: (id) => dispatch(removeTodoBlock(id)),
         selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
     }
 }

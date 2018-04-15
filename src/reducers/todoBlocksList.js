@@ -51,6 +51,14 @@ const todosBlocks = (state = initialState, action) => {
                     [action.blockId]: todoBlockItem(state.todoBlocksById[action.blockId], action)
                 }
             }
+        case actionTypes.SET_TODO_BLOCK_TITLE:
+            return {
+                ...state,
+                todoBlocksById: {
+                    ...state.todoBlocksById,
+                    [action.id]: todoBlockItem(state.todoBlocksById[action.blockId], action)
+                }
+            }
         default:
             return state
     }

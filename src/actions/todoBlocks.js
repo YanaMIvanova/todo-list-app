@@ -13,6 +13,14 @@ export const removeTodoBlock = id => {
     }
 }
 
+export const setTodoBlockTitle = (id, title) => {
+    return {
+        type: actionTypes.SET_TODO_BLOCK_TITLE,
+        id,
+        title
+    }
+}
+
 export const setCurrentTodoBlock = id => ({
     type: actionTypes.SET_CURRENT_TODO_BLOCK,
     id,

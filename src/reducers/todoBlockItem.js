@@ -18,6 +18,11 @@ const todoBlockItem = (state = initialState, action) => {
                 ...state,
                 visibilityFilter: action.filter
             }
+        case actionTypes.SET_TODO_BLOCK_TITLE:
+            return {
+                ...state,
+                title: action.title
+            }
         default:
             return state
     }

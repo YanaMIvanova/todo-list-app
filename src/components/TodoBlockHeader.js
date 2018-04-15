@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class TodoBlockHeader extends Component {
     render() {
-        const { title, removeTodoBlock, selectTodoBlock } = this.props
+        const { removeTodoBlock, selectTodoBlock, title } = this.props
 
         return <div
             onClick={selectTodoBlock}
@@ -15,7 +15,7 @@ class TodoBlockHeader extends Component {
             <button
                 onClick={removeTodoBlock}
                 style={{
-                    marginLeft: "60%"
+                    float: "right"
                 }}
             >
                 Delete List

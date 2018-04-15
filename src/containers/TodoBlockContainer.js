@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return {
         removeTodoBlock: (id) => dispatch(removeTodoBlock(id)),
-        selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
+        selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id))
     }
 }
 

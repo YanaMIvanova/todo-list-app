@@ -27,7 +27,7 @@ let AddTodo = ({ dispatch, blockId }) => {
 }
 
 AddTodo.propTypes = {
-    blockId: PropTypes.number.isRequired
+    blockId: PropTypes.string.isRequired
 }
 
 export default connect()(AddTodo)

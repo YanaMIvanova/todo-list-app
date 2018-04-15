@@ -56,7 +56,7 @@ const todosBlocks = (state = initialState, action) => {
                 ...state,
                 todoBlocksById: {
                     ...state.todoBlocksById,
-                    [action.id]: todoBlockItem(state.todoBlocksById[action.blockId], action)
+                    [action.id]: todoBlockItem(state.todoBlocksById[action.id], action)
                 }
             }
         default:

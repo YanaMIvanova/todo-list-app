@@ -1,8 +1,8 @@
 import React from 'react'
-import TodoBlock from '../containers/TodoBlock'
+import TodoBlockContainer from '../containers/TodoBlockContainer'
 
 const App = () => {
-    return <TodoBlock />
+    return <TodoBlockContainer />
 }
 
 export default App

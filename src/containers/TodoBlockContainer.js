@@ -6,6 +6,10 @@ import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import { removeTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
 
 class TodoBlockContainer extends Component {
+    state = {
+        showChangeTitleForm: false
+    }
+
     handleRemoveBlock = id => event => {
         const { removeTodoBlock } = this.props
         event.stopPropagation()
@@ -17,6 +21,12 @@ class TodoBlockContainer extends Component {
         const { selectTodoBlock } = this.props
 
         selectTodoBlock(id)
+    }
+
+    handleToggleChangeTitleForm = () => {
+        this.setState({
+            showChangeTitleForm: !this.state.showChangeTitleForm
+        })
     }
 
     render() {
@@ -35,9 +45,11 @@ class TodoBlockContainer extends Component {
                         <TodoBlock
                             key={block.id}
                             block={block}
+                            showChangeTitleForm={this.state.showChangeTitleForm}
                             currentBlockId={currentBlockId}
                             selectBlock={this.handleSelectBlock}
                             removeBlock={this.handleRemoveBlock}
+                            toggleChangeTitleForm={this.handleToggleChangeTitleForm}
                         />
                     )
                 }

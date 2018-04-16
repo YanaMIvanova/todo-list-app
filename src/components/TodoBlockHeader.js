@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class TodoBlockHeader extends Component {
     render() {
-        const { removeTodoBlock, selectTodoBlock, title } = this.props
+        const { removeTodoBlock, selectTodoBlock, title, toggleChangeTitleForm } = this.props
 
         return <div
             onClick={selectTodoBlock}
@@ -12,6 +12,11 @@ class TodoBlockHeader extends Component {
             }}
         >
             {title}
+            &nbsp;
+            <i
+                onClick={toggleChangeTitleForm}
+                className="fa fa-edit"
+            />
             <button
                 onClick={removeTodoBlock}
                 style={{
@@ -27,7 +32,8 @@ class TodoBlockHeader extends Component {
 TodoBlockHeader.propTypes = {
     title: PropTypes.string.isRequired,
     removeTodoBlock: PropTypes.func.isRequired,
-    selectTodoBlock: PropTypes.func.isRequired
+    selectTodoBlock: PropTypes.func.isRequired,
+    toggleChangeTitleForm: PropTypes.func.isRequired
 }
 
 export default TodoBlockHeader

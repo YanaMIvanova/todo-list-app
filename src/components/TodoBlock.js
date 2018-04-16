@@ -6,7 +6,7 @@ import ChangeTitle from '../containers/ChangeTitle'
 import TodoBlockHeader from './TodoBlockHeader'
 import PropTypes from "prop-types";
 
-const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock }) => (
+const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock, showChangeTitleForm, toggleChangeTitleForm }) => (
     <div
         key={"key-" + block.id}
         style={{
@@ -22,13 +22,19 @@ const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock }) => (
             title={block.title}
             removeTodoBlock={removeBlock(block.id)}
             selectTodoBlock={selectBlock(block.id)}
+            toggleChangeTitleForm={toggleChangeTitleForm}
         />
         {
             currentBlockId === block.id && (
                 <Fragment>
-                    <ChangeTitle
-                        blockId={block.id}
-                    />
+                    {showChangeTitleForm
+                        ? (
+                            <ChangeTitle
+                                blockId={block.id}
+                            />
+                        )
+                        : null
+                    }
                     <AddTodo blockId={block.id}/>
                     <Filters blockId={block.id}/>
                     <VisibleTodoList blockId={block.id}/>
@@ -39,10 +45,12 @@ const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock }) => (
 )
 
 TodoBlock.propTypes = {
+    showChangeTitleForm: PropTypes.bool.isRequired,
     currentBlockId: PropTypes.string.isRequired,
     block: PropTypes.object.isRequired,
     selectBlock: PropTypes.func.isRequired,
-    removeBlock: PropTypes.func.isRequired
+    removeBlock: PropTypes.func.isRequired,
+    toggleChangeTitleForm: PropTypes.func.isRequired
 }
 
 

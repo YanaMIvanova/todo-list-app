@@ -12,3 +12,5 @@ export default todoApp
 export const blocksSelector = state => fromTodoBlocksList.todoBlocksSelector(state.todoBlocksList)
 
 export const currentTodoBlockIdSelector = state => fromTodoBlocksList.currentTodoBlockIdSelector(state.todoBlocksList)
+
+export const currentTodoBlockSelector = state => fromTodoBlocksList.currentTodoBlockSelector(state.todoBlocksList)

@@ -45,7 +45,7 @@ const TodoBlock = ({
                         }
                         <AddTodoContainer blockId={block.id}/>
                         <Filters blockId={block.id}/>
-                        <VisibleTodoListContainer blockId={block.id}/>
+                        <VisibleTodoListContainer />
                     </Fragment>
                 )
             }

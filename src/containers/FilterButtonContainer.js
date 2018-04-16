@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions/todos'
 import FilterButton from '../components/FilterButton'
-import { blocksSelector } from "../reducers";
+import { currentTodoBlockSelector } from "../reducers";
 
 const mapStateToProps = (state, ownProps) => {
-    const todoBlock = blocksSelector(state).find(block => block.id === ownProps.blockId)
+    const todoBlock = currentTodoBlockSelector(state)
 
     return {
         active: ownProps.filter === todoBlock.visibilityFilter

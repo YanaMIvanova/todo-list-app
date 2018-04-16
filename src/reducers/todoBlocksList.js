@@ -77,3 +77,9 @@ export const todoBlocksSelector = createSelector(
     todoBlocksByIdSelector,
     (ids, byId) => ids.map(id => byId[id])
 )
+
+export const currentTodoBlockSelector = createSelector(
+    todoBlocksByIdSelector,
+    currentTodoBlockIdSelector,
+    (todoBlocks, currentTodoBlockId) => todoBlocks[currentTodoBlockId]
+)

@@ -5,9 +5,7 @@ const FilterButton = ({ active, children, setVisibilityFilter }) => {
     return <button
         onClick={setVisibilityFilter}
         disabled={active}
-        style={{
-            marginLeft: '4px',
-        }}
+        className="filter-button"
     >
         {children}
     </button>

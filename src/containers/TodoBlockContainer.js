@@ -34,11 +34,7 @@ class TodoBlockContainer extends Component {
 
         return (
             <div
-                style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    flexWrap: "wrap"
-                }}
+                className="todoblocks"
             >
                 {
                     blocks.map(block =>

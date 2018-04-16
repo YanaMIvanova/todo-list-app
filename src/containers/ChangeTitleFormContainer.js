@@ -8,9 +8,7 @@ const ChangeTitleFormContainer = ({ blockId, toggleChangeTitleForm, dispatch }) 
 
     return (
         <form
-            style={{
-                marginBottom: "10px"
-            }}
+            className="todoblock-change-title-form"
             onSubmit={e => {
                 e.preventDefault()
                 if (input.value.trim()) {

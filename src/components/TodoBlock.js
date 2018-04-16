@@ -16,14 +16,7 @@ const TodoBlock = ({
     }) => (
         <div
             key={"key-" + block.id}
-            style={{
-                border: "1px solid black",
-                padding: "10px",
-                minWidth: "400px",
-                margin: "10px",
-                display: "flex",
-                flexDirection: "column"
-            }}
+            className="todoblock"
         >
             <TodoBlockHeader
                 title={block.title}

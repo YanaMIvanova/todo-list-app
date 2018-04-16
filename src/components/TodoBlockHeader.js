@@ -7,9 +7,7 @@ class TodoBlockHeader extends Component {
 
         return <div
             onClick={selectTodoBlock}
-            style={{
-                marginBottom: "10px"
-            }}
+            className="todoblock-header"
         >
             {title}
             &nbsp;
@@ -19,9 +17,7 @@ class TodoBlockHeader extends Component {
             />
             <button
                 onClick={removeTodoBlock}
-                style={{
-                    float: "right"
-                }}
+                className="todoblock-delete-button"
             >
                 Delete List
             </button>

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import AddTodoContainer from '../containers/AddTodoContainer'
-import VisibleTodoListContainer from '../containers/VisibleTodoListContainer'
-import Filters from '../components/Filters'
-import ChangeTitleFormContainer from '../containers/ChangeTitleFormContainer'
-import TodoBlockHeader from './TodoBlockHeader'
 import PropTypes from "prop-types";
+import AddTodoItemFormContainer from '../containers/AddTodoItemFormContainer'
+import VisibleTodoListContainer from '../containers/VisibleTodoListContainer'
+import ChangeTitleFormContainer from '../containers/ChangeTitleFormContainer'
+import Filters from './Filters'
+import TodoBlockHeader from './TodoBlockHeader'
 
 const TodoBlock = ({
         currentBlockId,
@@ -36,7 +36,7 @@ const TodoBlock = ({
                             )
                             : null
                         }
-                        <AddTodoContainer blockId={block.id}/>
+                        <AddTodoItemFormContainer blockId={block.id}/>
                         <Filters blockId={block.id}/>
                         <VisibleTodoListContainer />
                     </Fragment>

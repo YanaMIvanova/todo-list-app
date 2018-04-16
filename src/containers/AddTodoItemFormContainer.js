@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/todos'
 import PropTypes from "prop-types";
+import { addTodo } from '../actions/todos'
 
-let AddTodoContainer = ({ dispatch, blockId }) => {
+let AddTodoItemFormContainer = ({ dispatch, blockId }) => {
     let input = ''
 
     return (
@@ -26,8 +26,8 @@ let AddTodoContainer = ({ dispatch, blockId }) => {
     )
 }
 
-AddTodoContainer.propTypes = {
+AddTodoItemFormContainer.propTypes = {
     blockId: PropTypes.string.isRequired
 }
 
-export default connect()(AddTodoContainer)
+export default connect()(AddTodoItemFormContainer)

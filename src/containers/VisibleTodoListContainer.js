@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { toggleTodo, removeTodo } from '../actions/todos'
-import TodoList from '../components/TodoList'
 import { visibleTodosSelector } from '../reducers/todos'
 import { currentTodoBlockSelector } from "../reducers";
+import TodoList from '../components/TodoList'
 
 const mapStateToProps = state => {
     const todoBlock = currentTodoBlockSelector(state)

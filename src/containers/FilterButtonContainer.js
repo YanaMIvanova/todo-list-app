@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions/todos'
-import FilterButton from '../components/FilterButton'
 import { currentTodoBlockSelector } from "../reducers";
+import FilterButton from '../components/FilterButton'
 
 const mapStateToProps = (state, ownProps) => {
     const todoBlock = currentTodoBlockSelector(state)

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addTodo } from '../actions/todos'
 import PropTypes from "prop-types";
 
-let AddTodo = ({ dispatch, blockId }) => {
+let AddTodoContainer = ({ dispatch, blockId }) => {
     let input = ''
 
     return (
@@ -26,8 +26,8 @@ let AddTodo = ({ dispatch, blockId }) => {
     )
 }
 
-AddTodo.propTypes = {
+AddTodoContainer.propTypes = {
     blockId: PropTypes.string.isRequired
 }
 
-export default connect()(AddTodo)
+export default connect()(AddTodoContainer)

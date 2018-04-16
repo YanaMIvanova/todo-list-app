@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import AddTodoContainer from '../containers/AddTodoContainer'
+import VisibleTodoListContainer from '../containers/VisibleTodoListContainer'
 import Filters from '../components/Filters'
-import ChangeTitle from '../containers/ChangeTitle'
+import ChangeTitleFormContainer from '../containers/ChangeTitleFormContainer'
 import TodoBlockHeader from './TodoBlockHeader'
 import PropTypes from "prop-types";
 
@@ -29,16 +29,16 @@ const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock, showChange
                 <Fragment>
                     {showChangeTitleForm
                         ? (
-                            <ChangeTitle
+                            <ChangeTitleFormContainer
                                 blockId={block.id}
                                 toggleChangeTitleForm={toggleChangeTitleForm}
                             />
                         )
                         : null
                     }
-                    <AddTodo blockId={block.id}/>
+                    <AddTodoContainer blockId={block.id}/>
                     <Filters blockId={block.id}/>
-                    <VisibleTodoList blockId={block.id}/>
+                    <VisibleTodoListContainer blockId={block.id}/>
                 </Fragment>
             )
         }

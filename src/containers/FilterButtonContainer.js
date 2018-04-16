@@ -17,9 +17,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const FilterButton = connect(
+const FilterButtonContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Button)
 
-export default FilterButton
+export default FilterButtonContainer

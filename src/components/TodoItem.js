@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({toggleTodo, removeTodo, completed, text, id}) => {
+const TodoItem = ({toggleTodo, removeTodo, completed, text, id}) => {
     return <div>
         <li
             style={ {
@@ -18,7 +18,7 @@ const Todo = ({toggleTodo, removeTodo, completed, text, id}) => {
     </div>
 }
 
-Todo.propTypes = {
+TodoItem.propTypes = {
     toggleTodo: PropTypes.func.isRequired,
     removeTodo: PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
@@ -26,4 +26,4 @@ Todo.propTypes = {
     id: PropTypes.string.isRequired
 }
 
-export default  Todo
+export default TodoItem

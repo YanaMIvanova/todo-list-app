@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Todo from './Todo'
+import TodoItem from './TodoItem'
 
 const TodoList = ({ todos, toggleTodo, removeTodo }) => (
     <div>
@@ -8,7 +8,7 @@ const TodoList = ({ todos, toggleTodo, removeTodo }) => (
             {todos.map(todo => (
                 <div key={todo.id}>
                     <hr/>
-                    <Todo
+                    <TodoItem
                         {...todo}
                         toggleTodo={toggleTodo}
                         removeTodo={removeTodo}

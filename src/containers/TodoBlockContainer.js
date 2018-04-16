@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import AddTodoBlock from '../components/AddTodoBlock'
+import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import { removeTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
@@ -53,7 +53,7 @@ class TodoBlockContainer extends Component {
                         />
                     )
                 }
-                <AddTodoBlock />
+                <AddTodoBlockButton />
             </div>
         )
     }

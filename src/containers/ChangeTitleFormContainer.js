@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setTodoBlockTitle } from "../actions/todoBlocks";
 
-const ChangeTitle = ({ blockId, toggleChangeTitleForm, dispatch }) => {
+const ChangeTitleFormContainer = ({ blockId, toggleChangeTitleForm, dispatch }) => {
     let input = ''
 
     return (
@@ -31,9 +31,9 @@ const ChangeTitle = ({ blockId, toggleChangeTitleForm, dispatch }) => {
     )
 }
 
-ChangeTitle.propTypes = {
+ChangeTitleFormContainer.propTypes = {
     blockId: PropTypes.string.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }
 
-export default connect()(ChangeTitle)
+export default connect()(ChangeTitleFormContainer)

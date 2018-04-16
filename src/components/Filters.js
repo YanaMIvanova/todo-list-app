@@ -1,5 +1,5 @@
 import React from 'react'
-import FilterButton from '../containers/FilterButton'
+import FilterButtonContainer from '../containers/FilterButtonContainer'
 import { visibilityFilters } from '../constants'
 import PropTypes from "prop-types";
 
@@ -7,15 +7,15 @@ const Filters = ({ blockId }) => (
     <p>
         <span>Show:</span>
         &nbsp;
-        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_ALL}>
+        <FilterButtonContainer blockId={blockId} filter={visibilityFilters.SHOW_ALL}>
             All
-        </FilterButton>
-        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_ACTIVE}>
+        </FilterButtonContainer>
+        <FilterButtonContainer blockId={blockId} filter={visibilityFilters.SHOW_ACTIVE}>
             Active
-        </FilterButton>
-        <FilterButton blockId={blockId} filter={visibilityFilters.SHOW_COMPLETED}>
+        </FilterButtonContainer>
+        <FilterButtonContainer blockId={blockId} filter={visibilityFilters.SHOW_COMPLETED}>
             Completed
-        </FilterButton>
+        </FilterButtonContainer>
     </p>
 )
 

@@ -1,4 +1,4 @@
-import {actionTypes, visibilityFilters} from "../constants";
+import { actionTypes, visibilityFilters } from "../constants";
 const { SHOW_ALL } = visibilityFilters
 
 const idGenerator = (id = 0) => () => `${id++}`

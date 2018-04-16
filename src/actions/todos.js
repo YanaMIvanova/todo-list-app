@@ -1,4 +1,4 @@
-import {actionTypes} from "../constants";
+import { actionTypes } from "../constants";
 
 let nextTodoId = 1
 export const addTodo = (text, blockId) => ({

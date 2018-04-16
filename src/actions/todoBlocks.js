@@ -1,4 +1,4 @@
-import {actionTypes} from "../constants";
+import { actionTypes } from "../constants";
 
 export const addTodoBlock = () => ({
     type: actionTypes.ADD_TODO_BLOCK

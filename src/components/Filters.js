@@ -1,7 +1,7 @@
 import React from 'react'
-import FilterButtonContainer from '../containers/FilterButtonContainer'
-import { visibilityFilters } from '../constants'
 import PropTypes from "prop-types";
+import { visibilityFilters } from '../constants'
+import FilterButtonContainer from '../containers/FilterButtonContainer'
 
 const Filters = ({ blockId }) => (
     <p>

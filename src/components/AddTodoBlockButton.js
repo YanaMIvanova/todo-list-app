@@ -1,6 +1,6 @@
 import React from 'react'
-import { addTodoBlock } from '../actions/todoBlocks'
 import { connect } from "react-redux";
+import { addTodoBlock } from '../actions/todoBlocks'
 
 const AddTodoBlockButton = ({ dispatch }) => (
     <button onClick={() => dispatch(addTodoBlock())}>

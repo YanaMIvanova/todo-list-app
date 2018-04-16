@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoItem = ({toggleTodo, removeTodo, completed, text, id}) => {
+const TodoItem = ({ toggleTodo, removeTodo, completed, text, id }) => {
     return <div>
         <li
-            style={ {
+            style={{
                 textDecoration: completed ? 'line-through' : 'none'
-            } }
+            }}
         >
             {text}
         </li>

@@ -17,7 +17,7 @@ class TodoBlockContainer extends Component {
         removeTodoBlock(id)
     }
 
-    handleSelectBlock = id => event => {
+    handleSelectBlock = id => _event => {
         const { selectTodoBlock } = this.props
 
         selectTodoBlock(id)

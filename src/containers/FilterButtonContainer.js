@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions/todos'
-import Button from '../components/Button'
+import FilterButton from '../components/FilterButton'
 import { blocksSelector } from "../reducers";
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,6 +20,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const FilterButtonContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Button)
+)(FilterButton)
 
 export default FilterButtonContainer

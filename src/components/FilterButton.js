@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ active, children, setVisibilityFilter }) => {
+const FilterButton = ({ active, children, setVisibilityFilter }) => {
     return <button
         onClick={setVisibilityFilter}
         disabled={active}
@@ -13,10 +13,10 @@ const Button = ({ active, children, setVisibilityFilter }) => {
     </button>
 }
 
-Button.propTypes = {
+FilterButton.propTypes = {
     active: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
     setVisibilityFilter: PropTypes.func.isRequired
 }
 
-export default Button
+export default FilterButton

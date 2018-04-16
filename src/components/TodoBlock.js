@@ -31,6 +31,7 @@ const TodoBlock = ({ currentBlockId, block, selectBlock, removeBlock, showChange
                         ? (
                             <ChangeTitle
                                 blockId={block.id}
+                                toggleChangeTitleForm={toggleChangeTitleForm}
                             />
                         )
                         : null

@@ -13,7 +13,9 @@ const ChangeTitle = ({ blockId, dispatch }) => {
             }}
             onSubmit={e => {
                 e.preventDefault()
-                dispatch(setTodoBlockTitle(blockId, input.value))
+                if (input.value.trim()) {
+                    dispatch(setTodoBlockTitle(blockId, input.value))
+                }
                 input.value = ''
             }}
         >

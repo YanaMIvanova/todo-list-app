@@ -1,23 +1,15 @@
-import { takeEvery, all } from 'redux-saga/effects'
+import { takeEvery, all, call } from 'redux-saga/effects'
 import {loadState, saveState} from "../localStorage";
 
 export function* uploadInitialDataToLocalStore() {
-    const urgentTodos = {
-        "Work": [
-            "Finish the Redux Project",
-            "Catch up with the DS course",
-            "Display the retrieved data"
-        ],
-        "Family": [
-            "Buy birthday present"
-        ]
+    const mostRecentId = yield call(loadState, "id")
+    if (!mostRecentId) {
+        yield call(saveState,"id", 1)
     }
-
-    saveState(urgentTodos)
 }
 
 export function* fetchUrgentTodosWorker() {
-    const data = loadState()
+    const data = yield call(loadState)
     console.log(data)
 }
 

@@ -58,6 +58,7 @@ class TodoBlockContainer extends Component {
                     )
                 }
                 <AddTodoBlockButton />
+
                 <button
                     className="fetch-data-button"
                     onClick={getUrgentTodos}

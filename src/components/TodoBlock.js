@@ -12,6 +12,7 @@ const TodoBlock = ({
         selectBlock,
         removeBlock,
         showChangeTitleForm,
+        isExpanded,
         toggleChangeTitleForm
     }) => (
         <div
@@ -19,13 +20,14 @@ const TodoBlock = ({
             className="todoblock"
         >
             <TodoBlockHeader
+                isExpanded={isExpanded(block.id)}
                 title={block.title}
                 removeTodoBlock={removeBlock(block.id)}
                 selectTodoBlock={selectBlock(block.id)}
                 toggleChangeTitleForm={toggleChangeTitleForm}
             />
             {
-                currentBlockId === block.id && (
+                isExpanded(block.id) && (
                     <Fragment>
                         {showChangeTitleForm
                             ? (
@@ -47,6 +49,7 @@ const TodoBlock = ({
 
 TodoBlock.propTypes = {
     showChangeTitleForm: PropTypes.bool.isRequired,
+    isExpanded: PropTypes.bool.isRequired,
     currentBlockId: PropTypes.string.isRequired,
     block: PropTypes.object.isRequired,
     selectBlock: PropTypes.func.isRequired,

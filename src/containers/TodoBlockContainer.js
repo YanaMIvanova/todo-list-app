@@ -29,6 +29,12 @@ class TodoBlockContainer extends Component {
         })
     }
 
+    isExpanded = (blockId) => {
+        const { currentBlockId } = this.props
+
+        return currentBlockId === blockId
+    }
+
     render() {
         const { blocks, currentBlockId } = this.props
 
@@ -41,8 +47,9 @@ class TodoBlockContainer extends Component {
                         <TodoBlock
                             key={block.id}
                             block={block}
-                            showChangeTitleForm={this.state.showChangeTitleForm}
                             currentBlockId={currentBlockId}
+                            isExpanded={this.isExpanded}
+                            showChangeTitleForm={this.state.showChangeTitleForm}
                             selectBlock={this.handleSelectBlock}
                             removeBlock={this.handleRemoveBlock}
                             toggleChangeTitleForm={this.handleToggleChangeTitleForm}

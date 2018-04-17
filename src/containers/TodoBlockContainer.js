@@ -50,6 +50,11 @@ class TodoBlockContainer extends Component {
                     )
                 }
                 <AddTodoBlockButton />
+                <button
+                    className="fetch-data-button"
+                >
+                    Fetch Data
+                </button>
             </div>
         )
     }

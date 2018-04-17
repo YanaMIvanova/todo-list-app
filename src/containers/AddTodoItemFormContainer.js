@@ -1,33 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from "prop-types";
 import { addTodo } from '../actions/todos'
+import AddTodoItemForm from "../components/AddTodoItemForm";
 
-let AddTodoItemFormContainer = ({ dispatch, blockId }) => {
-    let input = ''
+const mapDispatchToProps = ( dispatch, ownProps ) => ({
+    addTodo: todo => dispatch(addTodo(todo, ownProps.blockId))
+})
 
-    return (
-        <div>
-            <form
-                onSubmit={e => {
-                    e.preventDefault()
-                    if (input.value.trim()) {
-                        dispatch(addTodo(input.value, blockId))
-                        input.value = ''
-                    }
-                }}
-            >
-                <input ref={node => input = node} />
-                <button type="submit">
-                    Add Todo
-                </button>
-            </form>
-        </div>
-    )
-}
+const AddTodoItemFormContainer = connect(
+    null,
+    mapDispatchToProps
+)(AddTodoItemForm)
 
-AddTodoItemFormContainer.propTypes = {
-    blockId: PropTypes.string.isRequired
-}
-
-export default connect()(AddTodoItemFormContainer)
+export default AddTodoItemFormContainer

@@ -1,38 +1,16 @@
 import React from 'react'
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { setTodoBlockTitle } from "../actions/todoBlocks";
+import ChangeTitleForm from "../components/ChangeTitleForm";
 
-const ChangeTitleFormContainer = ({ blockId, toggleChangeTitleForm, dispatch }) => {
-    let input = ''
+const mapDispatchToProps = ( dispatch, ownProps ) => ({
+    setTodoBlockTitle: title => dispatch(setTodoBlockTitle(title, ownProps.blockId)),
+    toggleChangeTitleForm: () => ownProps.toggleChangeTitleForm()
+})
 
-    return (
-        <form
-            className="todoblock-change-title-form"
-            onSubmit={e => {
-                e.preventDefault()
-                if (input.value.trim()) {
-                    dispatch(setTodoBlockTitle(blockId, input.value))
-                    toggleChangeTitleForm()
-                }
-                input.value = ''
-            }}
-        >
-            <input
-                type="text"
-                ref={node => input = node}
-                autoFocus
-            />
-            <button type="submit">
-                Change Title
-            </button>
-        </form>
-    )
-}
+const ChangeTitleFormContainer = connect(
+    null,
+    mapDispatchToProps
+)(ChangeTitleForm)
 
-ChangeTitleFormContainer.propTypes = {
-    blockId: PropTypes.string.isRequired,
-    toggleChangeTitleForm: PropTypes.func.isRequired
-}
-
-export default connect()(ChangeTitleFormContainer)
+export default ChangeTitleFormContainer

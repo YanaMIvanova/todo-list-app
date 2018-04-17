@@ -9,7 +9,7 @@ export const removeTodoBlock = id => ({
     id,
 })
 
-export const setTodoBlockTitle = (id, title) => ({
+export const setTodoBlockTitle = (title, id) => ({
     type: actionTypes.SET_TODO_BLOCK_TITLE,
     id,
     title

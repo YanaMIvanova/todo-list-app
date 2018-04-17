@@ -15,7 +15,11 @@ const AddTodoItemForm = ({ addTodo }) => {
                     }
                 }}
             >
-                <input ref={node => input = node} />
+                <input
+                    ref={node => input = node}
+                    type="text"
+                    autoFocus
+                />
                 <button type="submit">
                     Add Todo
                 </button>

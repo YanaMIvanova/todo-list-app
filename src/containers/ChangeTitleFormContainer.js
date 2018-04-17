@@ -21,6 +21,7 @@ const ChangeTitleFormContainer = ({ blockId, toggleChangeTitleForm, dispatch }) 
             <input
                 type="text"
                 ref={node => input = node}
+                autoFocus
             />
             <button type="submit">
                 Change Title

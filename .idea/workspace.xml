@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35ac9d-5922-4072-9774-e27eb1b3e3aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/TodoBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoBlockHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoBlockHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/TodoBlockContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoBlockContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChangeTitleForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChangeTitleForm.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TodoBlockHeader.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TodoBlockHeader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -30,11 +28,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ChangeTitleFormContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/ChangeTitleFormContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeTitleForm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/ChangeTitleForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TodoBlock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TodoBlock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="390">
+              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -57,8 +79,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+            <state relative-caret-position="203">
+              <caret line="41" column="40" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -162,13 +184,13 @@
         <option value="$PROJECT_DIR$/src/components/AddTodoItemForm.js" />
         <option value="$PROJECT_DIR$/src/actions/todoBlocks.js" />
         <option value="$PROJECT_DIR$/src/containers/ChangeTitleFormContainer.js" />
-        <option value="$PROJECT_DIR$/src/components/ChangeTitleForm.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/AddTodoBlockButton.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/TodoBlockHeader.js" />
         <option value="$PROJECT_DIR$/src/containers/TodoBlockContainer.js" />
         <option value="$PROJECT_DIR$/src/components/TodoBlock.js" />
+        <option value="$PROJECT_DIR$/src/components/ChangeTitleForm.js" />
       </list>
     </option>
   </component>
@@ -287,12 +309,12 @@
       <workItem from="1523654710226" duration="9034000" />
       <workItem from="1523709502041" duration="15135000" />
       <workItem from="1523798438894" duration="8079000" />
-      <workItem from="1523859433898" duration="29374000" />
+      <workItem from="1523859433898" duration="29485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107291000" />
+    <option name="totallyTimeSpent" value="107402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -650,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ChangeTitleFormContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/todoBlocks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -671,23 +686,6 @@
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ChangeTitleForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="50" lean-forward="true" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -711,6 +709,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/TodoBlockContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="763">
@@ -723,20 +731,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TodoBlock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="390">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/ChangeTitleFormContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="338">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="41" column="40" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ChangeTitleForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

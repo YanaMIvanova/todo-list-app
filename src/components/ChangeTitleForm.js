@@ -6,6 +6,7 @@ const ChangeTitleForm = ({ setTodoBlockTitle, toggleChangeTitleForm }) => {
 
     return (
         <form
+            className="todoblock-change-title-form"
             onSubmit={e => {
                 e.preventDefault()
                 if (input.value.trim()) {

@@ -15,6 +15,7 @@
     "react-redux": "^5.0.7",
     "reactstrap": "^5.0.0-beta.3",
     "redux": "^3.5.2",
+    "redux-saga": "^0.16.0",
     "reselect": "^3.0.1"
   },
   "scripts": {

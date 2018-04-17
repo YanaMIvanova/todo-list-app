@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { removeTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
+import { fetchUrgentTodos } from "../actions/todos";
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
@@ -36,7 +37,7 @@ class TodoBlockContainer extends Component {
     }
 
     render() {
-        const { blocks, currentBlockId } = this.props
+        const { blocks, currentBlockId, getUrgentTodos } = this.props
 
         return (
             <div
@@ -59,6 +60,7 @@ class TodoBlockContainer extends Component {
                 <AddTodoBlockButton />
                 <button
                     className="fetch-data-button"
+                    onClick={getUrgentTodos}
                 >
                     Fetch Data
                 </button>
@@ -72,12 +74,11 @@ const mapStateToProps = state => ({
     currentBlockId: currentTodoBlockIdSelector(state)
 })
 
-const mapDispatchToProps = dispatch => {
-    return {
-        removeTodoBlock: (id) => dispatch(removeTodoBlock(id)),
-        selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id))
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    removeTodoBlock: (id) => dispatch(removeTodoBlock(id)),
+    selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
+    getUrgentTodos: () => dispatch(fetchUrgentTodos())
+})
 
 export default connect(
     mapStateToProps,

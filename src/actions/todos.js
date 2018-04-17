@@ -18,6 +18,10 @@ export const toggleTodo = id => ({
     id
 })
 
+export const fetchUrgentTodos = () => ({
+    type: actionTypes.FETCH_URGENT_TODOS,
+})
+
 export const setVisibilityFilter = (filter, blockId) => ({
     type: actionTypes.SET_VISIBILITY_FILTER,
     filter,

@@ -25,7 +25,7 @@ export function* initialSaga() {
     }
 }
 
-export function* addTodoBlockToLocalStorageWorker() {
+export function* saveTodoBlockToStorageWorker() {
     const mostRecentId = yield call(readFromStorage, "mostRecentId")
 
     const newTodoBlock = {
@@ -42,13 +42,18 @@ export function* addTodoBlockToLocalStorageWorker() {
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 }
 
-export function* addTodoBlockToLocalStorageWatcher() {
-    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, addTodoBlockToLocalStorageWorker)
+export function* saveTodoBlockToStorageWatcher() {
+    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
+}
+
+export function* deleteTodoBlockFromStorageWatcher() {
+    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
 }
 
 export default function* rootSaga () {
     yield all([
-        addTodoBlockToLocalStorageWatcher(),
+        deleteTodoBlockFromStorageWatcher(),
+        saveTodoBlockToStorageWatcher(),
         initialSaga(),
     ])
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { removeTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
+import { deleteTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
 import { fetchUrgentTodos } from "../actions/todos";
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
@@ -11,11 +11,11 @@ class TodoBlockContainer extends Component {
         showChangeTitleForm: false
     }
 
-    handleRemoveBlock = id => event => {
-        const { removeTodoBlock } = this.props
+    handleDeleteBlock = id => event => {
+        const { deleteTodoBlock } = this.props
         event.stopPropagation()
 
-        removeTodoBlock(id)
+        deleteTodoBlock(id)
     }
 
     handleSelectBlock = id => _event => {
@@ -52,7 +52,7 @@ class TodoBlockContainer extends Component {
                             isExpanded={this.isExpanded}
                             showChangeTitleForm={this.state.showChangeTitleForm}
                             selectBlock={this.handleSelectBlock}
-                            removeBlock={this.handleRemoveBlock}
+                            deleteBlock={this.handleDeleteBlock}
                             toggleChangeTitleForm={this.handleToggleChangeTitleForm}
                         />
                     )
@@ -75,7 +75,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    removeTodoBlock: (id) => dispatch(removeTodoBlock(id)),
+    deleteTodoBlock: (id) => dispatch(deleteTodoBlock(id)),
     selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
     getUrgentTodos: () => dispatch(fetchUrgentTodos())
 })

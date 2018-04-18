@@ -9,8 +9,8 @@ export const saveTodoBlockToStorage = () => ({
     type: actionTypes.SAVE_TODO_BLOCK_TO_STORAGE
 })
 
-export const removeTodoBlock = id => ({
-    type: actionTypes.REMOVE_TODO_BLOCK,
+export const deleteTodoBlock = id => ({
+    type: actionTypes.DELETE_TODO_BLOCK,
     id,
 })
 

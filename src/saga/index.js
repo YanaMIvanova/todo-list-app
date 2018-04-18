@@ -10,12 +10,26 @@ export const defaultTodoBlock = {
     title: "New List"
 }
 
+export const defaultTodo = {
+    id: "",
+    blockId: "",
+    text: ""
+}
+
 export function* initialSaga() {
-    const mostRecentId = yield call(readFromStorage, "mostRecentId")
+    const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
+    const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
     const todoBlocks = yield call(readFromStorage, "todoBlocks")
-    if (!mostRecentId) {
-        yield call(writeToStorage,"mostRecentId", 0)
+    const todos = yield call(readFromStorage, "todos")
+
+    if (!mostRecentTodoBlockId) {
+        yield call(writeToStorage,"mostRecentTodoBlockId", 0)
     }
+
+    if (!mostRecentTodoId) {
+        yield call(writeToStorage,"mostRecentTodoId", 0)
+    }
+
     if (!todoBlocks) {
         yield call(writeToStorage,"todoBlocks", [])
     } else {
@@ -23,19 +37,23 @@ export function* initialSaga() {
             yield put(addTodoBlock(block))
         }
     }
+
+    if (!todos) {
+        yield call(writeToStorage,"todos", [])
+    }
 }
 
 export function* saveTodoBlockToStorageWorker() {
-    const mostRecentId = yield call(readFromStorage, "mostRecentId")
+    const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
 
     const newTodoBlock = {
         ...defaultTodoBlock,
-        id: mostRecentId + 1
+        id: mostRecentTodoBlockId + 1
     }
 
     yield put(addTodoBlock(newTodoBlock))
 
-    yield call(writeToStorage, "mostRecentId", mostRecentId + 1)
+    yield call(writeToStorage, "mostRecentTodoBlockId", mostRecentTodoBlockId + 1)
 
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
@@ -74,6 +92,10 @@ export function* setTodoBlockTitleToStorageWorker({ title, id }) {
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
 
+export function* addTodoToStorageWorker({ text, blockId }) {
+    console.log(text, blockId)
+}
+
 export function* saveTodoBlockToStorageWatcher() {
     yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
 }
@@ -86,8 +108,13 @@ export function* setTodoBlockTitleToStorageWatcher() {
     yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE_TO_STORAGE, setTodoBlockTitleToStorageWorker)
 }
 
+export function* addTodoToStorageWatcher() {
+    yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoToStorageWorker)
+}
+
 export default function* rootSaga () {
     yield all([
+        addTodoToStorageWatcher(),
         setTodoBlockTitleToStorageWatcher(),
         deleteTodoBlockFromStorageWatcher(),
         saveTodoBlockToStorageWatcher(),

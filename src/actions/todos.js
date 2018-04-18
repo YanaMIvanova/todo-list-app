@@ -1,9 +1,15 @@
 import { actionTypes } from "../constants";
 
-let nextTodoId = 1
-export const addTodo = (text, blockId) => ({
-    id: `${blockId}-${nextTodoId++}`,
+export const addTodo = (text, blockId, todoId) => ({
+    id: `${blockId}-${todoId}`,
     type: actionTypes.ADD_TODO,
+    blockId,
+    text
+})
+
+export const addTodoToStorage = (text, blockId) => ({
+    id: `${blockId}-`,
+    type: actionTypes.ADD_TODO_TO_STORAGE,
     blockId,
     text
 })

@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/todos'
+import { addTodoToStorage } from '../actions/todos'
 import AddTodoItemForm from "../components/AddTodoItemForm";
 
 const mapDispatchToProps = ( dispatch, ownProps ) => ({
-    addTodo: todo => dispatch(addTodo(todo, ownProps.blockId))
+    addTodo: todo => dispatch(addTodoToStorage(todo, ownProps.blockId))
 })
 
 const AddTodoItemFormContainer = connect(

@@ -1,6 +1,7 @@
-import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { takeEvery, takeLatest, call, put, all } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import {addTodoBlock, deleteTodoBlock, setTodoBlockTitle} from "../actions/todoBlocks";
+import { addTodoBlock, deleteTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
+import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 const { SHOW_ALL } = visibilityFilters
 
@@ -10,11 +11,11 @@ export const defaultTodoBlock = {
     title: "New List"
 }
 
-export const defaultTodo = {
-    id: "",
-    blockId: "",
-    text: ""
-}
+// export const defaultTodo = {
+//     id: "",
+//     blockId: "",
+//     text: ""
+// }
 
 export function* initialSaga() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
@@ -40,6 +41,10 @@ export function* initialSaga() {
 
     if (!todos) {
         yield call(writeToStorage,"todos", [])
+    } else {
+        for (let todo of todos) {
+            yield put(addTodo(todo))
+        }
     }
 }
 
@@ -92,8 +97,21 @@ export function* setTodoBlockTitleToStorageWorker({ title, id }) {
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
 
-export function* addTodoToStorageWorker({ text, blockId }) {
-    console.log(text, blockId)
+export function* addTodoToStorageWorker(action) {
+    const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
+
+    const newTodo = {
+        ...action,
+        id: `${action.blockId}-${mostRecentTodoId + 1}`
+    }
+
+    yield put(addTodo(newTodo))
+
+    yield call(writeToStorage, "mostRecentTodoId", mostRecentTodoId + 1)
+
+    const todosFromStorage = yield call(readFromStorage, "todos")
+
+    yield call(writeToStorage, "todos", [...todosFromStorage, newTodo])
 }
 
 export function* saveTodoBlockToStorageWatcher() {

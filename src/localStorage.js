@@ -1,7 +1,7 @@
 export const readFromStorage = (item) => {
     try {
         return new Promise(resolve =>
-            setTimeout(() => resolve(localStorage.getItem(`${item}`)), 500)
+            setTimeout(() => resolve(localStorage.getItem(`${item}`)), 0)
         )
         .then(retrievedData => JSON.parse(retrievedData))
     } catch (error) {

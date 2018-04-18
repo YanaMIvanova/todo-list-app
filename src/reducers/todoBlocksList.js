@@ -1,27 +1,23 @@
 import { createSelector }from "reselect";
 import { actionTypes } from "../constants";
-import todoBlockItem, { todoBlockIdGenerator, initialState as todoBlockItemInitialState } from "./todoBlockItem";
+import todoBlockItem from "./todoBlockItem";
 
 const initialState = {
-    currentTodoBlockId: "0",
-    todoBlocksIds: ["0"],
-    todoBlocksById: {
-        "0": todoBlockItemInitialState
-    }
+    currentTodoBlockId: "",
+    todoBlocksIds: [],
+    todoBlocksById: {}
 }
 
 const todosBlocks = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_TODO_BLOCK:
-            let todoBlockId = todoBlockIdGenerator()
-
             return {
                 ...state,
-                currentTodoBlockId: todoBlockId,
-                todoBlocksIds: [...state.todoBlocksIds, todoBlockId],
+                currentTodoBlockId: action.todoBlock.id,
+                todoBlocksIds: [...state.todoBlocksIds, action.todoBlock.id],
                 todoBlocksById: {
                     ...state.todoBlocksById,
-                    [todoBlockId]: {...todoBlockItemInitialState, id: todoBlockId}
+                    [action.todoBlock.id]: action.todoBlock
                 }
             }
         case actionTypes.REMOVE_TODO_BLOCK:

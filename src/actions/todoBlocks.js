@@ -1,7 +1,12 @@
 import { actionTypes } from "../constants";
 
-export const addTodoBlock = () => ({
-    type: actionTypes.ADD_TODO_BLOCK
+export const addTodoBlock = (todoBlock) => ({
+    type: actionTypes.ADD_TODO_BLOCK,
+    todoBlock
+})
+
+export const addTodoBlockToLocalStorage = () => ({
+    type: actionTypes.ADD_TODO_BLOCK_TO_LOCALSTORAGE
 })
 
 export const removeTodoBlock = id => ({

@@ -1,25 +1,54 @@
-import { takeEvery, all, call } from 'redux-saga/effects'
-import {loadState, saveState} from "../localStorage";
+import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { actionTypes, visibilityFilters } from "../constants";
+import { addTodoBlock } from "../actions/todoBlocks";
+import { readFromStorage, writeToStorage } from "../localStorage";
+const { SHOW_ALL } = visibilityFilters
 
-export function* uploadInitialDataToLocalStore() {
-    const mostRecentId = yield call(loadState, "id")
+export const defaultTodoBlock = {
+    id: 0,
+    visibilityFilter: SHOW_ALL,
+    title: "New List"
+}
+
+export function* initialSaga() {
+    const mostRecentId = yield call(readFromStorage, "mostRecentId")
+    const todoBlocks = yield call(readFromStorage, "todoBlocks")
     if (!mostRecentId) {
-        yield call(saveState,"id", 1)
+        yield call(writeToStorage,"mostRecentId", 0)
+    }
+    if (!todoBlocks) {
+        yield call(writeToStorage,"todoBlocks", [])
+    } else {
+        for (let block of todoBlocks) {
+            yield put(addTodoBlock(block))
+        }
     }
 }
 
-export function* fetchUrgentTodosWorker() {
-    const data = yield call(loadState)
-    console.log(data)
+export function* addTodoBlockToLocalStorageWorker() {
+    const mostRecentId = yield call(readFromStorage, "mostRecentId")
+
+    const newTodoBlock = {
+        ...defaultTodoBlock,
+        id: mostRecentId + 1
+    }
+
+    yield put(addTodoBlock(newTodoBlock))
+
+    yield call(writeToStorage, "mostRecentId", mostRecentId + 1)
+
+    const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
+
+    yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 }
 
-export function* fetchUrgentTodosWatcher() {
-    yield takeEvery('FETCH_URGENT_TODOS', fetchUrgentTodosWorker)
+export function* addTodoBlockToLocalStorageWatcher() {
+    yield takeEvery(actionTypes.ADD_TODO_BLOCK_TO_LOCALSTORAGE, addTodoBlockToLocalStorageWorker)
 }
 
 export default function* rootSaga () {
     yield all([
-        uploadInitialDataToLocalStore(),
-        fetchUrgentTodosWatcher()
+        addTodoBlockToLocalStorageWatcher(),
+        initialSaga(),
     ])
 }

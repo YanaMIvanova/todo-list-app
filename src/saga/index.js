@@ -1,6 +1,6 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import { addTodoBlock } from "../actions/todoBlocks";
+import { addTodoBlock, deleteTodoBlock } from "../actions/todoBlocks";
 import { readFromStorage, writeToStorage } from "../localStorage";
 const { SHOW_ALL } = visibilityFilters
 
@@ -42,12 +42,27 @@ export function* saveTodoBlockToStorageWorker() {
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 }
 
+export function* deleteTodoBlockFromStorageWorker({ id }) {
+    const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
+    let filteredTodoBlocks = []
+
+    for (let block of todoBlocksFromStorage) {
+        if (block.id !== id) {
+            filteredTodoBlocks.push(block)
+        }
+    }
+
+    yield put(deleteTodoBlock(id))
+
+    yield call(writeToStorage, "todoBlocks", filteredTodoBlocks)
+}
+
 export function* saveTodoBlockToStorageWatcher() {
     yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
 }
 
 export function* deleteTodoBlockFromStorageWatcher() {
-    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
+    yield takeEvery(actionTypes.DELETE_TODO_BLOCK_FROM_STORAGE, deleteTodoBlockFromStorageWorker)
 }
 
 export default function* rootSaga () {

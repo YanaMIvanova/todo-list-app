@@ -14,6 +14,11 @@ export const deleteTodoBlock = id => ({
     id,
 })
 
+export const deleteTodoBlockFromStorage = id => ({
+    type: actionTypes.DELETE_TODO_BLOCK_FROM_STORAGE,
+    id,
+})
+
 export const setTodoBlockTitle = (title, id) => ({
     type: actionTypes.SET_TODO_BLOCK_TITLE,
     id,

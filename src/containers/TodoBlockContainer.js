@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks";
+import { deleteTodoBlockFromStorage, setCurrentTodoBlock } from "../actions/todoBlocks";
 import { fetchUrgentTodos } from "../actions/todos";
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
@@ -75,7 +75,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    deleteTodoBlock: (id) => dispatch(deleteTodoBlock(id)),
+    deleteTodoBlock: (id) => dispatch(deleteTodoBlockFromStorage(id)),
     selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
     getUrgentTodos: () => dispatch(fetchUrgentTodos())
 })

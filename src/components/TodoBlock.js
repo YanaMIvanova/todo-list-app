@@ -49,8 +49,8 @@ const TodoBlock = ({
 
 TodoBlock.propTypes = {
     showChangeTitleForm: PropTypes.bool.isRequired,
-    isExpanded: PropTypes.bool.isRequired,
-    currentBlockId: PropTypes.string.isRequired,
+    isExpanded: PropTypes.func.isRequired,
+    currentBlockId: PropTypes.number.isRequired,
     block: PropTypes.object.isRequired,
     selectBlock: PropTypes.func.isRequired,
     removeBlock: PropTypes.func.isRequired,

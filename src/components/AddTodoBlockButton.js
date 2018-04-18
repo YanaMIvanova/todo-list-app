@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { addTodoBlockToLocalStorage } from '../actions/todoBlocks'
+import { saveTodoBlockToStorage } from '../actions/todoBlocks'
 
 const AddTodoBlockButton = ({ dispatch }) => (
     <button
-        onClick={() => dispatch(addTodoBlockToLocalStorage())}
+        onClick={() => dispatch(saveTodoBlockToStorage())}
         className="add-todoblock-button"
     >
         Add Todo Block

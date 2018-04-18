@@ -5,8 +5,8 @@ export const addTodoBlock = (todoBlock) => ({
     todoBlock
 })
 
-export const addTodoBlockToLocalStorage = () => ({
-    type: actionTypes.ADD_TODO_BLOCK_TO_LOCALSTORAGE
+export const saveTodoBlockToStorage = () => ({
+    type: actionTypes.SAVE_TODO_BLOCK_TO_STORAGE
 })
 
 export const removeTodoBlock = id => ({

@@ -43,7 +43,7 @@ export function* addTodoBlockToLocalStorageWorker() {
 }
 
 export function* addTodoBlockToLocalStorageWatcher() {
-    yield takeEvery(actionTypes.ADD_TODO_BLOCK_TO_LOCALSTORAGE, addTodoBlockToLocalStorageWorker)
+    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, addTodoBlockToLocalStorageWorker)
 }
 
 export default function* rootSaga () {

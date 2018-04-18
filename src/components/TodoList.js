@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TodoItem from './TodoItem'
 
-const TodoList = ({ todos, toggleTodo, removeTodo }) => (
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
     <div>
         <ul>
             {todos.map(todo => (
@@ -11,7 +11,7 @@ const TodoList = ({ todos, toggleTodo, removeTodo }) => (
                     <TodoItem
                         {...todo}
                         toggleTodo={toggleTodo}
-                        removeTodo={removeTodo}
+                        deleteTodo={deleteTodo}
                     />
                 </div>
             ))}
@@ -28,7 +28,7 @@ TodoList.propTypes = {
         }).isRequired
     ).isRequired,
     toggleTodo: PropTypes.func.isRequired,
-    removeTodo: PropTypes.func.isRequired
+    deleteTodo: PropTypes.func.isRequired
 }
 
 export default TodoList

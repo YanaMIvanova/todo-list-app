@@ -13,7 +13,7 @@ const todos = (state = [], action) => {
                     completed: false
                 }
             ]
-        case actionTypes.REMOVE_TODO:
+        case actionTypes.DELETE_TODO:
             return state.filter(todo => todo.id !== action.id)
         case actionTypes.DELETE_TODO_BLOCK:
             return state.filter(todo => todo.blockId !== action.id)

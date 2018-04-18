@@ -14,18 +14,14 @@ export const addTodoToStorage = (text, blockId) => ({
     text
 })
 
-export const removeTodo = id => ({
-    type: actionTypes.REMOVE_TODO,
+export const deleteTodo = id => ({
+    type: actionTypes.DELETE_TODO,
     id,
 })
 
 export const toggleTodo = id => ({
     type: actionTypes.TOGGLE_TODO,
     id
-})
-
-export const fetchUrgentTodos = () => ({
-    type: actionTypes.FETCH_URGENT_TODOS,
 })
 
 export const setVisibilityFilter = (filter, blockId) => ({

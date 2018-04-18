@@ -37,7 +37,7 @@ class TodoBlockContainer extends Component {
     }
 
     render() {
-        const { blocks, currentBlockId, getUrgentTodos } = this.props
+        const { blocks, currentBlockId } = this.props
 
         return (
             <div
@@ -58,12 +58,6 @@ class TodoBlockContainer extends Component {
                     )
                 }
                 <AddTodoBlockButton />
-                <button
-                    className="fetch-data-button"
-                    onClick={getUrgentTodos}
-                >
-                    Fetch Data
-                </button>
             </div>
         )
     }
@@ -76,8 +70,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     deleteTodoBlock: (id) => dispatch(deleteTodoBlockFromStorage(id)),
-    selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id)),
-    getUrgentTodos: () => dispatch(fetchUrgentTodos())
+    selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id))
 })
 
 export default connect(

@@ -1,7 +1,7 @@
 import { takeEvery, call, put, all } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
 import { addTodoBlock, deleteTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
-import { addTodo } from "../actions/todos";
+import {addTodo, deleteTodo} from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 const { SHOW_ALL } = visibilityFilters
 
@@ -10,12 +10,6 @@ export const defaultTodoBlock = {
     visibilityFilter: SHOW_ALL,
     title: "New List"
 }
-
-// export const defaultTodo = {
-//     id: "",
-//     blockId: "",
-//     text: ""
-// }
 
 export function* initialSaga() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
@@ -114,6 +108,22 @@ export function* addTodoToStorageWorker(action) {
     yield call(writeToStorage, "todos", [...todosFromStorage, newTodo])
 }
 
+export function* deleteTodoFromStorageWorker({ id }) {
+    const todos = yield call(readFromStorage, "todos")
+
+    let filteredTodos = []
+
+    for (let todo of todos) {
+        if (todo.id !== id) {
+            filteredTodos.push(todo)
+        }
+    }
+
+    yield put(deleteTodo(id))
+
+    yield call(writeToStorage, "todos", filteredTodos)
+}
+
 export function* saveTodoBlockToStorageWatcher() {
     yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
 }
@@ -130,8 +140,13 @@ export function* addTodoToStorageWatcher() {
     yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoToStorageWorker)
 }
 
+export function* deleteTodoFromStorageWatcher() {
+    yield takeEvery(actionTypes.DELETE_TODO_FROM_STORAGE, deleteTodoFromStorageWorker)
+}
+
 export default function* rootSaga () {
     yield all([
+        deleteTodoFromStorageWatcher(),
         addTodoToStorageWatcher(),
         setTodoBlockTitleToStorageWatcher(),
         deleteTodoBlockFromStorageWatcher(),

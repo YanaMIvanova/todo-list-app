@@ -19,6 +19,11 @@ export const deleteTodo = id => ({
     id,
 })
 
+export const deleteTodoFromStorage = id => ({
+    type: actionTypes.DELETE_TODO_FROM_STORAGE,
+    id,
+})
+
 export const toggleTodo = id => ({
     type: actionTypes.TOGGLE_TODO,
     id

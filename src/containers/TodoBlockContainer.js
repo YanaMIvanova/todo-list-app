@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTodoBlockFromStorage, setCurrentTodoBlock } from "../actions/todoBlocks";
-import { fetchUrgentTodos } from "../actions/todos";
+import { deleteTodoBlockFromStorage, setCurrentTodoBlock } from "../actions/todoBlocks"
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'

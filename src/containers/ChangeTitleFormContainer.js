@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from "react-redux";
 import { setTodoBlockTitleToStorage } from "../actions/todoBlocks";
 import ChangeTitleForm from "../components/ChangeTitleForm";

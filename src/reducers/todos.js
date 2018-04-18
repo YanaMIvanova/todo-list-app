@@ -19,7 +19,7 @@ const todos = (state = [], action) => {
             return state.filter(todo => todo.blockId !== action.id)
         case actionTypes.TOGGLE_TODO:
             return state.map(todo => (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
-        default :
+        default:
             return state
     }
 }
@@ -38,5 +38,7 @@ export const visibleTodosSelector = (state, filter) => {
             return todosByBlockId.filter(t => t.completed)
         case 'SHOW_ACTIVE':
             return todosByBlockId.filter(t => !t.completed)
+        default:
+            return state
     }
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { addTodoToStorage } from '../actions/todos'
 import AddTodoItemForm from "../components/AddTodoItemForm";

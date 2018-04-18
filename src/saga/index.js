@@ -1,4 +1,4 @@
-import { takeEvery, takeLatest, call, put, all } from 'redux-saga/effects'
+import { takeEvery, call, put, all } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
 import { addTodoBlock, deleteTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";

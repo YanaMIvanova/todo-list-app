@@ -23,21 +23,21 @@ const todosBlocks = (state = initialState, action) => {
         case actionTypes.DELETE_TODO_BLOCK:
             return {
                 ...state,
-                todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.id),
-                currentTodoBlockId:  state.currentTodoBlockId === action.id
+                todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.blockId),
+                currentTodoBlockId:  state.currentTodoBlockId === action.blockId
                     ? state.currentTodoBlockId === state.todoBlocksIds[0]
                         ? state.todoBlocksIds[1]
                         : state.todoBlocksIds[0]
                     : state.currentTodoBlockId,
                 todoBlocksById: (() => {
-                    const {[action.id]: _actionid, ...rest} = state.todoBlocksById
+                    const {[action.blockId]: _blockId, ...rest} = state.todoBlocksById
                     return rest
                 })()
             }
         case actionTypes.SET_CURRENT_TODO_BLOCK:
             return {
                 ...state,
-                currentTodoBlockId: action.id
+                currentTodoBlockId: action.blockId
             }
         case actionTypes.SET_VISIBILITY_FILTER:
             return {
@@ -52,7 +52,7 @@ const todosBlocks = (state = initialState, action) => {
                 ...state,
                 todoBlocksById: {
                     ...state.todoBlocksById,
-                    [action.id]: todoBlockItem(state.todoBlocksById[action.id], action)
+                    [action.blockId]: todoBlockItem(state.todoBlocksById[action.blockId], action)
                 }
             }
         default:

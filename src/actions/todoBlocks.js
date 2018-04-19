@@ -9,18 +9,18 @@ export const saveTodoBlockToStorage = () => ({
     type: actionTypes.SAVE_TODO_BLOCK_TO_STORAGE
 })
 
-export const deleteTodoBlock = id => ({
+export const deleteTodoBlock = blockId => ({
     type: actionTypes.DELETE_TODO_BLOCK,
-    id,
+    blockId,
 })
 
-export const setTodoBlockTitle = (title, id) => ({
+export const setTodoBlockTitle = (title, blockId) => ({
     type: actionTypes.SET_TODO_BLOCK_TITLE,
-    id,
+    blockId,
     title
 })
 
-export const setCurrentTodoBlock = id => ({
+export const setCurrentTodoBlock = blockId => ({ //TODO
     type: actionTypes.SET_CURRENT_TODO_BLOCK,
-    id,
+    blockId,
 })

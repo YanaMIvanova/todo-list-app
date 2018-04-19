@@ -16,7 +16,7 @@ const todos = (state = [], action) => {
         case actionTypes.DELETE_TODO:
             return state.filter(todo => todo.id !== action.id)
         case actionTypes.DELETE_TODO_BLOCK:
-            return state.filter(todo => todo.blockId !== action.id)
+            return state.filter(todo => todo.blockId !== action.blockId)
         case actionTypes.TOGGLE_TODO:
             return state.map(todo => (todo.id === action.id) ? {...todo, completed: !todo.completed} : todo)
         default:

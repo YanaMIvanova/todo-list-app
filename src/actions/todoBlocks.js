@@ -20,7 +20,7 @@ export const setTodoBlockTitle = (title, blockId) => ({
     title
 })
 
-export const setCurrentTodoBlock = blockId => ({ //TODO
+export const setCurrentTodoBlock = blockId => ({
     type: actionTypes.SET_CURRENT_TODO_BLOCK,
     blockId,
 })

@@ -61,14 +61,14 @@ export function* saveTodoBlockToStorageWorker() {
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 }
 
-export function* deleteTodoBlockFromStorageWorker({ id }) {
+export function* deleteTodoBlockFromStorageWorker({ blockId }) {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
     const todosFromStorage = yield call(readFromStorage, "todos")
 
     let filteredTodoBlocks = []
 
     for (let block of todoBlocksFromStorage) {
-        if (block.id !== id) {
+        if (block.id !== blockId) {
             filteredTodoBlocks.push(block)
         }
     }
@@ -76,7 +76,7 @@ export function* deleteTodoBlockFromStorageWorker({ id }) {
     let filteredTodos = []
 
     for (let todo of todosFromStorage) {
-        if (todo.blockId !== id) {
+        if (todo.blockId !== blockId) {
             filteredTodos.push(todo)
         }
     }
@@ -85,13 +85,13 @@ export function* deleteTodoBlockFromStorageWorker({ id }) {
     yield call(writeToStorage, "todos", filteredTodos)
 }
 
-export function* setTodoBlockTitleWorker({ title, id }) {
+export function* setTodoBlockTitleWorker({ title, blockId }) {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
     let editedTodoBlocks = []
 
     for (let block of todoBlocksFromStorage) {
-        if (block.id === id) {
+        if (block.id === blockId) {
             block.title = title
         }
         editedTodoBlocks.push(block)

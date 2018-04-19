@@ -5,6 +5,11 @@ export const addTodoBlock = (todoBlock) => ({
     todoBlock
 })
 
+export const closeTodoBlock = blockId => ({
+    type: actionTypes.CLOSE_TODO_BLOCK,
+    blockId
+})
+
 export const saveTodoBlockToStorage = () => ({
     type: actionTypes.SAVE_TODO_BLOCK_TO_STORAGE
 })

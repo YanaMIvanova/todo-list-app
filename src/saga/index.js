@@ -1,8 +1,9 @@
-import { takeEvery, call, put, all } from 'redux-saga/effects'
+import { takeEvery, call, put, all, select } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
 import { addTodoBlock } from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
+import {todoBlockSelector} from "../reducers";
 const { SHOW_ALL } = visibilityFilters
 
 export const defaultTodoBlock = {
@@ -17,6 +18,7 @@ export function* initialSaga() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
     const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
     const todoBlocks = yield call(readFromStorage, "todoBlocks")
+    const closedTodoBlocks = yield call(readFromStorage, "closedTodoBlocks")
     const todos = yield call(readFromStorage, "todos")
 
     if (!mostRecentTodoBlockId) {
@@ -33,6 +35,10 @@ export function* initialSaga() {
         for (let block of todoBlocks) {
             yield put(addTodoBlock(block))
         }
+    }
+
+    if (!closedTodoBlocks) {
+        yield call(writeToStorage,"closedTodoBlocks", [])
     }
 
     if (!todos) {
@@ -131,6 +137,14 @@ export function* deleteTodoWorker({ id }) {
     yield call(writeToStorage, "todos", filteredTodos)
 }
 
+export function* closeTodoBlockWorker({ blockId }) {
+    const closedTodoBlocks = yield call(readFromStorage, "closedTodoBlocks")
+
+    const todoBlockToClose = yield select(todoBlockSelector, blockId)
+
+    yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks, todoBlockToClose])
+}
+
 export function* toggleTodoWorker({ id }) {
     const todos = yield call(readFromStorage, "todos")
 
@@ -168,12 +182,17 @@ export function* deleteTodoWatcher() {
     yield takeEvery(actionTypes.DELETE_TODO, deleteTodoWorker)
 }
 
+export function* closeTodoBlockWatcher() {
+    yield takeEvery(actionTypes.CLOSE_TODO_BLOCK, closeTodoBlockWorker)
+}
+
 export function* toggleTodoWatcher() {
     yield takeEvery(actionTypes.TOGGLE_TODO, toggleTodoWorker)
 }
 
 export default function* rootSaga () {
     yield all([
+        closeTodoBlockWatcher(),
         toggleTodoWatcher(),
         deleteTodoWatcher(),
         saveTodoToStorageWatcher(),

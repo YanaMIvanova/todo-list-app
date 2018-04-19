@@ -7,6 +7,7 @@ class TodoBlockHeader extends Component {
             selectTodoBlock,
             title,
             toggleChangeTitleForm,
+            closeTodoBlock,
             isExpanded
         } = this.props
 
@@ -26,7 +27,7 @@ class TodoBlockHeader extends Component {
                 style={{
                     float: "right"
                 }}
-                onClick={() => console.log("close block")}
+                onClick={closeTodoBlock}
             >
                 Close
             </button>
@@ -38,6 +39,7 @@ TodoBlockHeader.propTypes = {
     isExpanded: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     selectTodoBlock: PropTypes.func.isRequired,
+    closeTodoBlock: PropTypes.func.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }
 

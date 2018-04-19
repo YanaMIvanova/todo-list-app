@@ -12,6 +12,7 @@ const TodoBlock = ({
         block,
         selectBlock,
         deleteBlock,
+        closeTodoBlock,
         showChangeTitleForm,
         isExpanded,
         toggleChangeTitleForm
@@ -24,6 +25,7 @@ const TodoBlock = ({
                 isExpanded={isExpanded(block.id)}
                 title={block.title}
                 selectTodoBlock={selectBlock(block.id)}
+                closeTodoBlock={closeTodoBlock(block.id)}
                 toggleChangeTitleForm={toggleChangeTitleForm}
             />
             {
@@ -55,6 +57,7 @@ TodoBlock.propTypes = {
     block: PropTypes.object.isRequired,
     selectBlock: PropTypes.func.isRequired,
     deleteBlock: PropTypes.func.isRequired,
+    closeTodoBlock: PropTypes.func.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }
 

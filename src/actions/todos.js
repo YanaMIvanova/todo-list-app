@@ -1,17 +1,19 @@
 import { actionTypes } from "../constants";
 
-export const addTodo = ({ text, blockId, id }) => ({
+export const addTodo = ({ text, blockId, id, completed }) => ({
     id,
     type: actionTypes.ADD_TODO,
     blockId,
-    text
+    text,
+    completed
 })
 
 export const addTodoToStorage = (text, blockId) => ({
     id: "",
     type: actionTypes.ADD_TODO_TO_STORAGE,
     blockId,
-    text
+    text,
+    completed: false
 })
 
 export const deleteTodo = id => ({

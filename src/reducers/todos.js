@@ -10,7 +10,7 @@ const todos = (state = [], action) => {
                     id: action.id,
                     blockId: action.blockId,
                     text: action.text,
-                    completed: false
+                    completed: action.completed
                 }
             ]
         case actionTypes.DELETE_TODO:

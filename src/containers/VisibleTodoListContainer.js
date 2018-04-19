@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo, deleteTodoFromStorage } from '../actions/todos'
+import { toggleTodo, deleteTodo } from '../actions/todos'
 import { visibleTodosSelector } from '../reducers/todos'
 import { currentTodoBlockSelector } from "../reducers";
 import TodoList from '../components/TodoList'
@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         toggleTodo: id => dispatch(toggleTodo(id)),
-        deleteTodo: id => dispatch(deleteTodoFromStorage(id))
+        deleteTodo: id => dispatch(deleteTodo(id))
     }
 }
 

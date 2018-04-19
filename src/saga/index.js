@@ -121,7 +121,7 @@ export function* addTodoToStorageWorker(action) {
     yield call(writeToStorage, "todos", [...todosFromStorage, newTodo])
 }
 
-export function* deleteTodoFromStorageWorker({ id }) {
+export function* deleteTodoWorker({ id }) {
     const todos = yield call(readFromStorage, "todos")
 
     let filteredTodos = []
@@ -131,8 +131,6 @@ export function* deleteTodoFromStorageWorker({ id }) {
             filteredTodos.push(todo)
         }
     }
-
-    yield put(deleteTodo(id))
 
     yield call(writeToStorage, "todos", filteredTodos)
 }
@@ -170,8 +168,8 @@ export function* saveTodoToStorageWatcher() {
     yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoToStorageWorker)
 }
 
-export function* deleteTodoFromStorageWatcher() {
-    yield takeEvery(actionTypes.DELETE_TODO_FROM_STORAGE, deleteTodoFromStorageWorker)
+export function* deleteTodoWatcher() {
+    yield takeEvery(actionTypes.DELETE_TODO, deleteTodoWorker)
 }
 
 export function* toggleTodoWatcher() {
@@ -181,7 +179,7 @@ export function* toggleTodoWatcher() {
 export default function* rootSaga () {
     yield all([
         toggleTodoWatcher(),
-        deleteTodoFromStorageWatcher(),
+        deleteTodoWatcher(),
         saveTodoToStorageWatcher(),
         setTodoBlockTitleToStorageWatcher(),
         deleteTodoBlockFromStorageWatcher(),

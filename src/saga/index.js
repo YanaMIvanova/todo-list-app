@@ -1,7 +1,7 @@
 import { takeEvery, call, put, all } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import { addTodoBlock, deleteTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
-import {addTodo, deleteTodo} from "../actions/todos";
+import { addTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
+import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 const { SHOW_ALL } = visibilityFilters
 
@@ -81,8 +81,6 @@ export function* deleteTodoBlockFromStorageWorker({ id }) {
         }
     }
 
-    yield put(deleteTodoBlock(id))
-
     yield call(writeToStorage, "todoBlocks", filteredTodoBlocks)
     yield call(writeToStorage, "todos", filteredTodos)
 }
@@ -157,7 +155,7 @@ export function* saveTodoBlockToStorageWatcher() {
 }
 
 export function* deleteTodoBlockFromStorageWatcher() {
-    yield takeEvery(actionTypes.DELETE_TODO_BLOCK_FROM_STORAGE, deleteTodoBlockFromStorageWorker)
+    yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockFromStorageWorker)
 }
 
 export function* setTodoBlockTitleToStorageWatcher() {

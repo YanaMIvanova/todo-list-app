@@ -22,6 +22,14 @@ class TodoBlockHeader extends Component {
                     className="fa fa-edit"
                 />
             )}
+            <button
+                style={{
+                    float: "right"
+                }}
+                onClick={() => console.log("close block")}
+            >
+                Close
+            </button>
         </div>
     }
 }

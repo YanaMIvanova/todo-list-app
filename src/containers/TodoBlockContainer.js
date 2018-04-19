@@ -4,6 +4,7 @@ import { deleteTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks"
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
+import Dashboard from "../components/Dashboard";
 
 class TodoBlockContainer extends Component {
     state = {
@@ -42,6 +43,7 @@ class TodoBlockContainer extends Component {
             <div
                 className="todoblocks"
             >
+                <Dashboard />
                 {
                     blocks.map(block =>
                         <TodoBlock

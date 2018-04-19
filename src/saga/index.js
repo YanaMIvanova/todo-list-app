@@ -11,6 +11,8 @@ export const defaultTodoBlock = {
     title: "New List"
 }
 
+// Workers
+
 export function* initialSaga() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
     const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
@@ -61,6 +63,8 @@ export function* saveTodoBlockToStorageWorker() {
 
 export function* deleteTodoBlockFromStorageWorker({ id }) {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
+    const todosFromStorage = yield call(readFromStorage, "todos")
+
     let filteredTodoBlocks = []
 
     for (let block of todoBlocksFromStorage) {
@@ -69,9 +73,18 @@ export function* deleteTodoBlockFromStorageWorker({ id }) {
         }
     }
 
+    let filteredTodos = []
+
+    for (let todo of todosFromStorage) {
+        if (todo.blockId !== id) {
+            filteredTodos.push(todo)
+        }
+    }
+
     yield put(deleteTodoBlock(id))
 
     yield call(writeToStorage, "todoBlocks", filteredTodoBlocks)
+    yield call(writeToStorage, "todos", filteredTodos)
 }
 
 export function* setTodoBlockTitleToStorageWorker({ title, id }) {
@@ -139,6 +152,8 @@ export function* toggleTodoWorker({ id }) {
     yield call(writeToStorage, "todos", editedTodos)
 }
 
+// Watchers
+
 export function* saveTodoBlockToStorageWatcher() {
     yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
 }
@@ -151,7 +166,7 @@ export function* setTodoBlockTitleToStorageWatcher() {
     yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE_TO_STORAGE, setTodoBlockTitleToStorageWorker)
 }
 
-export function* addTodoToStorageWatcher() {
+export function* saveTodoToStorageWatcher() {
     yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoToStorageWorker)
 }
 
@@ -167,7 +182,7 @@ export default function* rootSaga () {
     yield all([
         toggleTodoWatcher(),
         deleteTodoFromStorageWatcher(),
-        addTodoToStorageWatcher(),
+        saveTodoToStorageWatcher(),
         setTodoBlockTitleToStorageWatcher(),
         deleteTodoBlockFromStorageWatcher(),
         saveTodoBlockToStorageWatcher(),

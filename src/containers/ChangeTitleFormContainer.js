@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
-import { setTodoBlockTitleToStorage } from "../actions/todoBlocks";
+import { setTodoBlockTitle } from "../actions/todoBlocks";
 import ChangeTitleForm from "../components/ChangeTitleForm";
 
 const mapDispatchToProps = ( dispatch, ownProps ) => ({
-    setTodoBlockTitle: title => dispatch(setTodoBlockTitleToStorage(title, ownProps.blockId)),
+    setTodoBlockTitle: title => dispatch(setTodoBlockTitle(title, ownProps.blockId)),
     toggleChangeTitleForm: () => ownProps.toggleChangeTitleForm()
 })
 

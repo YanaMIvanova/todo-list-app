@@ -1,6 +1,6 @@
 import { takeEvery, call, put, all } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import { addTodoBlock, setTodoBlockTitle } from "../actions/todoBlocks";
+import { addTodoBlock } from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 const { SHOW_ALL } = visibilityFilters
@@ -85,7 +85,7 @@ export function* deleteTodoBlockFromStorageWorker({ id }) {
     yield call(writeToStorage, "todos", filteredTodos)
 }
 
-export function* setTodoBlockTitleToStorageWorker({ title, id }) {
+export function* setTodoBlockTitleWorker({ title, id }) {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
     let editedTodoBlocks = []
@@ -96,8 +96,6 @@ export function* setTodoBlockTitleToStorageWorker({ title, id }) {
         }
         editedTodoBlocks.push(block)
     }
-
-    yield put(setTodoBlockTitle(title, id))
 
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
@@ -158,8 +156,8 @@ export function* deleteTodoBlockFromStorageWatcher() {
     yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockFromStorageWorker)
 }
 
-export function* setTodoBlockTitleToStorageWatcher() {
-    yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE_TO_STORAGE, setTodoBlockTitleToStorageWorker)
+export function* setTodoBlockTitleWatcher() {
+    yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
 }
 
 export function* saveTodoToStorageWatcher() {
@@ -179,7 +177,7 @@ export default function* rootSaga () {
         toggleTodoWatcher(),
         deleteTodoWatcher(),
         saveTodoToStorageWatcher(),
-        setTodoBlockTitleToStorageWatcher(),
+        setTodoBlockTitleWatcher(),
         deleteTodoBlockFromStorageWatcher(),
         saveTodoBlockToStorageWatcher(),
         initialSaga(),

@@ -20,12 +20,6 @@ export const setTodoBlockTitle = (title, id) => ({
     title
 })
 
-export const setTodoBlockTitleToStorage = (title, id) => ({
-    type: actionTypes.SET_TODO_BLOCK_TITLE_TO_STORAGE,
-    id,
-    title
-})
-
 export const setCurrentTodoBlock = id => ({
     type: actionTypes.SET_CURRENT_TODO_BLOCK,
     id,

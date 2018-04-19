@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 class TodoBlockHeader extends Component {
     render() {
         const {
-            deleteTodoBlock,
             selectTodoBlock,
             title,
             toggleChangeTitleForm,
@@ -23,12 +22,6 @@ class TodoBlockHeader extends Component {
                     className="fa fa-edit"
                 />
             )}
-            <button
-                onClick={deleteTodoBlock}
-                className="todoblock-delete-button"
-            >
-                Delete List
-            </button>
         </div>
     }
 }
@@ -36,7 +29,6 @@ class TodoBlockHeader extends Component {
 TodoBlockHeader.propTypes = {
     isExpanded: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    deleteTodoBlock: PropTypes.func.isRequired,
     selectTodoBlock: PropTypes.func.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }

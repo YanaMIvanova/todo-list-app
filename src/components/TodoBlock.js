@@ -5,6 +5,7 @@ import VisibleTodoListContainer from '../containers/VisibleTodoListContainer'
 import ChangeTitleFormContainer from '../containers/ChangeTitleFormContainer'
 import Filters from './Filters'
 import TodoBlockHeader from './TodoBlockHeader'
+import DeleteTodoBlockButton from "./DeleteTodoBlockButton";
 
 const TodoBlock = ({
         currentBlockId,
@@ -22,13 +23,13 @@ const TodoBlock = ({
             <TodoBlockHeader
                 isExpanded={isExpanded(block.id)}
                 title={block.title}
-                deleteTodoBlock={deleteBlock(block.id)}
                 selectTodoBlock={selectBlock(block.id)}
                 toggleChangeTitleForm={toggleChangeTitleForm}
             />
             {
                 isExpanded(block.id) && (
                     <Fragment>
+                        <DeleteTodoBlockButton deleteBlock={deleteBlock(block.id)}/>
                         {showChangeTitleForm
                             ? (
                                 <ChangeTitleFormContainer

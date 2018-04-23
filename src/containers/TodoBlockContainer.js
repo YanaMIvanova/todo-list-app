@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { closeTodoBlock, deleteTodoBlock, setCurrentTodoBlock } from "../actions/todoBlocks"
+import { closeTodoBlock, deleteTodoBlock, fetchClosedTodoBlocks, setCurrentTodoBlock } from "../actions/todoBlocks"
 import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
@@ -9,6 +9,18 @@ import Dashboard from "../components/Dashboard";
 class TodoBlockContainer extends Component {
     state = {
         showChangeTitleForm: false
+    }
+
+    componentDidMount() {
+        const { fetchClosedTodoBlocks } = this.props
+
+        fetchClosedTodoBlocks()
+    }
+
+    componentWillUpdate() {
+        const { fetchClosedTodoBlocks } = this.props
+
+        fetchClosedTodoBlocks()
     }
 
     handleDeleteBlock = id => event => {
@@ -79,6 +91,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     deleteTodoBlock: (id) => dispatch(deleteTodoBlock(id)),
+    fetchClosedTodoBlocks: () => dispatch(fetchClosedTodoBlocks()),
     closeTodoBlock: (id) => dispatch(closeTodoBlock(id)),
     selectTodoBlock: (id) => dispatch(setCurrentTodoBlock(id))
 })

@@ -5,7 +5,8 @@ import todoBlockItem from "./todoBlockItem";
 const initialState = {
     currentTodoBlockId: "",
     todoBlocksIds: [],
-    todoBlocksById: {}
+    todoBlocksById: {},
+    closedTodoBlocks: [],
 }
 
 const todosBlocks = (state = initialState, action) => {
@@ -19,6 +20,11 @@ const todosBlocks = (state = initialState, action) => {
                     ...state.todoBlocksById,
                     [action.todoBlock.id]: action.todoBlock
                 }
+            }
+        case actionTypes.SET_CLOSED_TODO_BLOCKS:
+            return {
+                ...state,
+                closedTodoBlocks: action.blocks
             }
         case actionTypes.DELETE_TODO_BLOCK:
             return {

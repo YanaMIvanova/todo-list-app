@@ -10,6 +10,15 @@ export const closeTodoBlock = blockId => ({
     blockId
 })
 
+export const setClosedTodoBlocks = blocks => ({
+    type: actionTypes.SET_CLOSED_TODO_BLOCKS,
+    blocks
+})
+
+export const fetchClosedTodoBlocks = () => ({
+    type: actionTypes.FETCH_CLOSED_TODO_BLOCKS
+})
+
 export const saveTodoBlockToStorage = () => ({
     type: actionTypes.SAVE_TODO_BLOCK_TO_STORAGE
 })

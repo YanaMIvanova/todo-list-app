@@ -55,7 +55,7 @@ export function* initialSaga() {
     }
 }
 
-export function* saveTodoBlockToStorageWorker() {
+export function* saveTodoBlockWorker() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
 
     const newTodoBlock = {
@@ -72,7 +72,7 @@ export function* saveTodoBlockToStorageWorker() {
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 }
 
-export function* deleteTodoBlockFromStorageWorker({ blockId }) {
+export function* deleteTodoBlockWorker({ blockId }) {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
     const todosFromStorage = yield call(readFromStorage, "todos")
 
@@ -111,7 +111,7 @@ export function* setTodoBlockTitleWorker({ title, blockId }) {
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
 
-export function* addTodoToStorageWorker(action) {
+export function* addTodoWorker(action) {
     const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
 
     const newTodo = {
@@ -181,20 +181,20 @@ export function* fetchTodoBlocksWatcher() {
     yield takeEvery(actionTypes.FETCH_CLOSED_TODO_BLOCKS, fetchClosedTodoBlocksWorker)
 }
 
-export function* saveTodoBlockToStorageWatcher() {
-    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockToStorageWorker)
+export function* saveTodoBlockWatcher() {
+    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
 }
 
-export function* deleteTodoBlockFromStorageWatcher() {
-    yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockFromStorageWorker)
+export function* deleteTodoBlockWatcher() {
+    yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockWorker)
 }
 
 export function* setTodoBlockTitleWatcher() {
     yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
 }
 
-export function* saveTodoToStorageWatcher() {
-    yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoToStorageWorker)
+export function* saveTodoWatcher() {
+    yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoWorker)
 }
 
 export function* deleteTodoWatcher() {
@@ -215,10 +215,10 @@ export default function* rootSaga () {
         closeTodoBlockWatcher(),
         toggleTodoWatcher(),
         deleteTodoWatcher(),
-        saveTodoToStorageWatcher(),
+        saveTodoWatcher(),
         setTodoBlockTitleWatcher(),
-        deleteTodoBlockFromStorageWatcher(),
-        saveTodoBlockToStorageWatcher(),
+        deleteTodoBlockWatcher(),
+        saveTodoBlockWatcher(),
         initialSaga(),
     ])
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeTodoBlock, deleteTodoBlock, fetchClosedTodoBlocks, setCurrentTodoBlock } from "../actions/todoBlocks"
-import { blocksSelector, currentTodoBlockIdSelector } from '../reducers'
+import { blocksSelector, closedTodoBlocksSelector, currentTodoBlockIdSelector } from '../reducers'
 import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
 import Dashboard from "../components/Dashboard";
@@ -56,13 +56,13 @@ class TodoBlockContainer extends Component {
     }
 
     render() {
-        const { blocks, currentBlockId } = this.props
+        const { blocks, currentBlockId, closedTodoBlocks } = this.props
 
         return (
             <div
                 className="todoblocks"
             >
-                <Dashboard />
+                <Dashboard closedTodoBlocks={closedTodoBlocks} />
                 {
                     blocks.map(block =>
                         <TodoBlock
@@ -86,7 +86,8 @@ class TodoBlockContainer extends Component {
 
 const mapStateToProps = state => ({
     blocks: blocksSelector(state),
-    currentBlockId: currentTodoBlockIdSelector(state)
+    currentBlockId: currentTodoBlockIdSelector(state),
+    closedTodoBlocks: closedTodoBlocksSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({

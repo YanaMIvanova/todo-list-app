@@ -74,6 +74,8 @@ export const todoBlocksIdsSelector = state => state.todoBlocksIds
 
 export const todoBlocksByIdSelector = state => state.todoBlocksById
 
+export const closedTodoBlocksSelector = state => state.closedTodoBlocks
+
 export const todoBlockSelector = (state, id) => state[id]
 
 export const todoBlocksSelector = createSelector(

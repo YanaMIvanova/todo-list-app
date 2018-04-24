@@ -54,22 +54,29 @@
             }
 
             .dashboard {
-                text-align: right;
-                width: 30px;
-                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                margin: unset;
                 position: fixed;
                 top: 0;
                 left: 0;
+                width: 30px;
+                height: 100%;
+                text-align: right;
                 background-color: darkblue;
                 color: white;
                 overflow-x: hidden;
                 transition: all 0.3s ease-out;
-                padding: 10px;
-                margin: unset;
             }
 
             .dashboard:hover {
                 width: 300px;
+            }
+
+            .closed-todo-block {
+                text-align: left;
+                white-space: nowrap;
             }
         </style>
     </head>

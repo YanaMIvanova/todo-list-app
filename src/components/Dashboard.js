@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { addTodoBlock } from "../actions/todoBlocks";
+import {connect} from "react-redux";
 
-const Dashboard = ({ closedTodoBlocks }) => (
+const Dashboard = ({ closedTodoBlocks, dispatch }) => (
     <h1
         className="dashboard"
     >
@@ -9,13 +11,21 @@ const Dashboard = ({ closedTodoBlocks }) => (
             ☰
         </div>
         {
-            closedTodoBlocks && closedTodoBlocks.map(block => <h3 className="closed-todo-block">{block.title}</h3>)
+            closedTodoBlocks && closedTodoBlocks.map(block =>
+                <div
+                    key={block.id}
+                    className="closed-todo-block"
+                    onClick={() => dispatch(addTodoBlock(block))}
+                >
+                    {block.title}
+                </div>
+            )
         }
     </h1>
 )
 
-Dashboard.PropTypes = {
+Dashboard.propTypes = {
     closedTodoBlocks: PropTypes.array.isRequired
 }
 
-export default Dashboard
+export default connect()(Dashboard)

@@ -6,7 +6,7 @@ import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
 import Dashboard from "../components/Dashboard";
 
-class TodoBlockContainer extends Component {
+class TodoBlocksContainer extends Component {
     state = {
         showChangeTitleForm: false
     }
@@ -100,4 +100,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TodoBlockContainer)
+)(TodoBlocksContainer)

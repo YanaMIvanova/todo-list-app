@@ -19,11 +19,11 @@ const TodoItem = ({ toggleTodo, deleteTodo, completed, text, id }) => {
 }
 
 TodoItem.propTypes = {
-    toggleTodo: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    toggleTodo: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired
 }
 
 export default TodoItem

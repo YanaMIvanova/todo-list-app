@@ -1,9 +1,9 @@
 import { takeEvery, call, put, all, select } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import {addTodoBlock, deleteTodoBlock, setClosedTodoBlocks} from "../actions/todoBlocks";
+import { addTodoBlock, deleteTodoBlock, setClosedTodoBlocks } from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
-import {todoBlockSelector} from "../reducers";
+import { todoBlockSelector } from "../reducers";
 const { SHOW_ALL } = visibilityFilters
 
 export const defaultTodoBlock = {

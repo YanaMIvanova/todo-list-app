@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
+import Filters from './Filters'
+import TodoBlockHeader from './TodoBlockHeader'
+import DeleteTodoBlockButton from "./DeleteTodoBlockButton"
 import AddTodoItemFormContainer from '../containers/AddTodoItemFormContainer'
 import VisibleTodoListContainer from '../containers/VisibleTodoListContainer'
 import ChangeTitleFormContainer from '../containers/ChangeTitleFormContainer'
-import Filters from './Filters'
-import TodoBlockHeader from './TodoBlockHeader'
-import DeleteTodoBlockButton from "./DeleteTodoBlockButton";
 
 const TodoBlock = ({
         currentBlockId,
@@ -52,13 +52,13 @@ const TodoBlock = ({
 
 TodoBlock.propTypes = {
     showChangeTitleForm: PropTypes.bool.isRequired,
-    isExpanded: PropTypes.func.isRequired,
     currentBlockId: PropTypes.number.isRequired,
-    block: PropTypes.object.isRequired,
+    isExpanded: PropTypes.func.isRequired,
     selectBlock: PropTypes.func.isRequired,
     deleteBlock: PropTypes.func.isRequired,
     closeTodoBlock: PropTypes.func.isRequired,
-    toggleChangeTitleForm: PropTypes.func.isRequired
+    toggleChangeTitleForm: PropTypes.func.isRequired,
+    block: PropTypes.object.isRequired
 }
 
 

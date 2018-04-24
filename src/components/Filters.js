@@ -20,7 +20,7 @@ const Filters = ({ blockId }) => (
 )
 
 Filters.propTypes = {
-    blockId: PropTypes.number.isRequired
+    blockId: PropTypes.string.isRequired
 }
 
 export default Filters

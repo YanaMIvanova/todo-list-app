@@ -8,7 +8,7 @@ class TodoBlockHeader extends Component {
             title,
             toggleChangeTitleForm,
             closeTodoBlock,
-            isExpanded
+            checkIsExpanded
         } = this.props
 
         return <div
@@ -17,7 +17,7 @@ class TodoBlockHeader extends Component {
         >
             {title}
             &nbsp;
-            {isExpanded && (
+            {checkIsExpanded && (
                 <i
                     onClick={toggleChangeTitleForm}
                     className="fa fa-edit"
@@ -36,7 +36,7 @@ class TodoBlockHeader extends Component {
 }
 
 TodoBlockHeader.propTypes = {
-    isExpanded: PropTypes.bool.isRequired,
+    checkIsExpanded: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     selectTodoBlock: PropTypes.func.isRequired,
     closeTodoBlock: PropTypes.func.isRequired,

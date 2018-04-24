@@ -13,8 +13,8 @@ const TodoBlock = ({
         selectBlock,
         deleteBlock,
         closeTodoBlock,
-        showChangeTitleForm,
-        isExpanded,
+        shouldShowChangeTitleForm,
+        checkIsExpanded,
         toggleChangeTitleForm
     }) => (
         <div
@@ -22,17 +22,17 @@ const TodoBlock = ({
             className="todoblock"
         >
             <TodoBlockHeader
-                isExpanded={isExpanded(block.id)}
+                checkIsExpanded={checkIsExpanded(block.id)}
                 title={block.title}
                 selectTodoBlock={selectBlock(block.id)}
                 closeTodoBlock={closeTodoBlock(block.id)}
                 toggleChangeTitleForm={toggleChangeTitleForm}
             />
             {
-                isExpanded(block.id) && (
+                checkIsExpanded(block.id) && (
                     <Fragment>
                         <DeleteTodoBlockButton deleteBlock={deleteBlock(block.id)}/>
-                        {showChangeTitleForm
+                        {shouldShowChangeTitleForm
                             ? (
                                 <ChangeTitleFormContainer
                                     blockId={block.id}
@@ -51,9 +51,9 @@ const TodoBlock = ({
 )
 
 TodoBlock.propTypes = {
-    showChangeTitleForm: PropTypes.bool.isRequired,
-    currentBlockId: PropTypes.number.isRequired,
-    isExpanded: PropTypes.func.isRequired,
+    shouldShowChangeTitleForm: PropTypes.bool.isRequired,
+    currentBlockId: PropTypes.string.isRequired,
+    checkIsExpanded: PropTypes.func.isRequired,
     selectBlock: PropTypes.func.isRequired,
     deleteBlock: PropTypes.func.isRequired,
     closeTodoBlock: PropTypes.func.isRequired,

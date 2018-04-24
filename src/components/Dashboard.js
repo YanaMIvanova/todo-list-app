@@ -25,7 +25,7 @@ const Dashboard = ({ closedTodoBlocks, dispatch }) => (
 )
 
 Dashboard.propTypes = {
-    closedTodoBlocks: PropTypes.array.isRequired
+    closedTodoBlocks: PropTypes.array
 }
 
 export default connect()(Dashboard)

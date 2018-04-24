@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from "prop-types"
 import { closeTodoBlock, deleteTodoBlock, fetchClosedTodoBlocks, setCurrentTodoBlock } from "../actions/todoBlocks"
 import { blocksSelector, closedTodoBlocksSelector, currentTodoBlockIdSelector } from '../reducers'
-import AddTodoBlockButton from '../components/AddTodoBlockButton'
-import TodoBlock from '../components/TodoBlock'
-import Dashboard from "../components/Dashboard";
+import TodoBlocks from "../components/TodoBlocks";
 
 class TodoBlocksContainer extends Component {
     state = {
-        showChangeTitleForm: false
+        shouldShowChangeTitleForm: false
     }
 
     componentDidMount() {
@@ -39,11 +38,11 @@ class TodoBlocksContainer extends Component {
 
     handleToggleChangeTitleForm = () => {
         this.setState({
-            showChangeTitleForm: !this.state.showChangeTitleForm
+            shouldShowChangeTitleForm: !this.state.shouldShowChangeTitleForm
         })
     }
 
-    isExpanded = (blockId) => {
+    checkIsExpanded = (blockId) => {
         const { currentBlockId } = this.props
 
         return currentBlockId === blockId
@@ -51,31 +50,30 @@ class TodoBlocksContainer extends Component {
 
     render() {
         const { blocks, currentBlockId, closedTodoBlocks } = this.props
+        const { shouldShowChangeTitleForm } = this.state
 
-        return (
-            <div
-                className="todoblocks"
-            >
-                <Dashboard closedTodoBlocks={closedTodoBlocks} />
-                {
-                    blocks.map(block =>
-                        <TodoBlock
-                            key={block.id}
-                            block={block}
-                            currentBlockId={currentBlockId}
-                            isExpanded={this.isExpanded}
-                            showChangeTitleForm={this.state.showChangeTitleForm}
-                            selectBlock={this.handleSelectBlock}
-                            deleteBlock={this.handleDeleteBlock}
-                            closeTodoBlock={this.handleCloseTodoBlock}
-                            toggleChangeTitleForm={this.handleToggleChangeTitleForm}
-                        />
-                    )
-                }
-                <AddTodoBlockButton />
-            </div>
-        )
+        return <TodoBlocks
+            closedTodoBlocks={closedTodoBlocks}
+            blocks={blocks}
+            currentBlockId={currentBlockId}
+            checkIsExpanded={this.checkIsExpanded}
+            shouldShowChangeTitleForm={shouldShowChangeTitleForm}
+            selectBlock={this.handleSelectBlock}
+            deleteBlock={this.handleDeleteBlock}
+            closeTodoBlock={this.handleCloseTodoBlock}
+            toggleChangeTitleForm={this.handleToggleChangeTitleForm}
+        />
     }
+}
+
+TodoBlocksContainer.propTypes = {
+    currentBlockId: PropTypes.string,
+    blocks: PropTypes.array.isRequired,
+    closedTodoBlocks: PropTypes.array.isRequired,
+    deleteTodoBlock: PropTypes.func.isRequired,
+    fetchClosedTodoBlocks: PropTypes.func.isRequired,
+    closeTodoBlock: PropTypes.func.isRequired,
+    selectTodoBlock: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

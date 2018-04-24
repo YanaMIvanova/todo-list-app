@@ -7,7 +7,7 @@ import { todoBlockSelector } from "../reducers";
 const { SHOW_ALL } = visibilityFilters
 
 export const defaultTodoBlock = {
-    id: 0,
+    id: "",
     visibilityFilter: SHOW_ALL,
     title: "New List"
 }
@@ -60,7 +60,7 @@ export function* saveTodoBlockWorker() {
 
     const newTodoBlock = {
         ...defaultTodoBlock,
-        id: mostRecentTodoBlockId + 1
+        id: `${mostRecentTodoBlockId + 1}`
     }
 
     yield put(addTodoBlock(newTodoBlock))

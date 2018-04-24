@@ -17,12 +17,6 @@ class TodoBlocksContainer extends Component {
         fetchClosedTodoBlocks()
     }
 
-    componentDidUpdate() {
-        const { fetchClosedTodoBlocks } = this.props
-
-        fetchClosedTodoBlocks()
-    }
-
     handleDeleteBlock = id => event => {
         const { deleteTodoBlock } = this.props
         event.stopPropagation()

@@ -153,6 +153,8 @@ export function* closeTodoBlockWorker({ blockId }) {
         yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks, todoBlockToClose])
         yield call(writeToStorage, "closedTodoBlocksIds", [...closedTodoBlocksIds, blockId])
     }
+
+    yield call(fetchClosedTodoBlocksWorker)
 }
 
 export function* fetchClosedTodoBlocksWorker() {

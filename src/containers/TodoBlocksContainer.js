@@ -17,7 +17,7 @@ class TodoBlocksContainer extends Component {
         fetchClosedTodoBlocks()
     }
 
-    componentWillUpdate() {
+    componentDidUpdate() {
         const { fetchClosedTodoBlocks } = this.props
 
         fetchClosedTodoBlocks()

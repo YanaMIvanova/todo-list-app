@@ -22,6 +22,7 @@ const TodoBlocks = ({
         >
             <Dashboard closedTodoBlocks={closedTodoBlocks} />
             {
+                console.log(blocks) ||
                 blocks.map(block =>
                     <TodoBlock
                         key={block.id}

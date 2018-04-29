@@ -18,10 +18,12 @@ class TodoBlockHeader extends Component {
             {title}
             &nbsp;
             {checkIsExpanded && (
-                <i
-                    onClick={toggleChangeTitleForm}
-                    className="fa fa-edit"
-                />
+                <button onClick={toggleChangeTitleForm}>
+                    <i
+                        className="fa fa-edit"
+                    />
+                    Rename
+                </button>
             )}
             <button
                 style={{

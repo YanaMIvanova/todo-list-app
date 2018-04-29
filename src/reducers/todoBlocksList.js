@@ -32,7 +32,8 @@ const todosBlocks = (state = initialState, action) => {
             return {
                 ...state,
                 todoBlocksById: rest,
-                todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.blockId)
+                todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.blockId),
+                closedTodoBlocks: state.closedTodoBlocks.filter(closedTodoBlock => closedTodoBlock.id !== action.blockId)
             }
         }
         case actionTypes.DELETE_TODO_BLOCK: {

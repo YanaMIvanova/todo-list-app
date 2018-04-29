@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35ac9d-5922-4072-9774-e27eb1b3e3aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+            <state relative-caret-position="427">
+              <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
                 <element signature="n#!!block;n#fetchClosedTodoBlocksWorker#0" />
@@ -71,8 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>width</find>
-      <find>\n\nexport const setClosedTodoBlocks \= blocks \=\&gt; \(\{\n    type\: actionTypes\.SET_CLOSED_TODO_BLOCKS\,\n    blocks\n\}\)</find>
       <find>closeTodoBlock</find>
       <find>todoBlock</find>
       <find>import</find>
@@ -101,6 +98,8 @@
       <find>initialSaga</find>
       <find>console.lo</find>
       <find>defa</find>
+      <find>filter</find>
+      <find>.filter</find>
     </findStrings>
     <dirStrings>
       <dir>C:\projects\tick42\redux\todo-list-app</dir>
@@ -298,12 +297,12 @@
       <workItem from="1523859433898" duration="85186000" />
       <workItem from="1524518818728" duration="23275000" />
       <workItem from="1524577561338" duration="11000" />
-      <workItem from="1524992669534" duration="21560000" />
+      <workItem from="1524992669534" duration="22217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207949000" />
+    <option name="totallyTimeSpent" value="208606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -693,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+        <state relative-caret-position="427">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
             <element signature="n#!!block;n#fetchClosedTodoBlocksWorker#0" />

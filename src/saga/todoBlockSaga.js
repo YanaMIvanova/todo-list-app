@@ -18,7 +18,6 @@ export function* closeTodoBlockWorker({ blockId }) {
     const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
 
     const todoBlockToClose = yield select(todoBlockSelector, blockId)
-    console.log(todoBlockToClose)
     yield put(removeTodoBlock(blockId))
 
     if(!closedTodoBlocksIds.includes(blockId)) {
@@ -26,8 +25,14 @@ export function* closeTodoBlockWorker({ blockId }) {
         yield call(writeToStorage, "closedTodoBlocksIds", [...closedTodoBlocksIds, blockId])
     }
     else {
-        const filteredTodoBlocks = closedTodoBlocks.filter(closedTodoBlock => closedTodoBlock.id !== blockId)
-        yield call(writeToStorage, "closedTodoBlocks", [...filteredTodoBlocks, todoBlockToClose])
+        for (let i = 0; i <= closedTodoBlocks.length; i++) {
+            let currentClosedTodoBlock = closedTodoBlocks[i]
+            if (currentClosedTodoBlock.id === blockId) {
+                currentClosedTodoBlock.title = todoBlockToClose.title
+                break
+            }
+        }
+        yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks])
     }
 
     yield call(fetchClosedTodoBlocksWorker)

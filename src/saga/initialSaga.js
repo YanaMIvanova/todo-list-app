@@ -4,13 +4,23 @@ import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 
 export function* initialSagaWorker() {
-    const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
-    const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
-    const closedTodoBlocks = yield call(readFromStorage, "closedTodoBlocks")
-    const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
-    const todoBlocks = yield call(readFromStorage, "todoBlocks")
-    const currentTodoBlockId = yield call(readFromStorage, "currentTodoBlockId")
-    const todos = yield call(readFromStorage, "todos")
+    const [
+        mostRecentTodoBlockId,
+        mostRecentTodoId,
+        closedTodoBlocks,
+        closedTodoBlocksIds,
+        todoBlocks,
+        currentTodoBlockId,
+        todos
+    ] = yield all([
+        call(readFromStorage, "mostRecentTodoBlockId"),
+        call(readFromStorage, "mostRecentTodoId"),
+        call(readFromStorage, "closedTodoBlocks"),
+        call(readFromStorage, "closedTodoBlocksIds"),
+        call(readFromStorage, "todoBlocks"),
+        call(readFromStorage, "currentTodoBlockId"),
+        call(readFromStorage, "todos"),
+    ])
 
     if (!mostRecentTodoBlockId) {
         yield call(writeToStorage,"mostRecentTodoBlockId", 0)

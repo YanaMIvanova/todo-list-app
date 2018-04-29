@@ -69,7 +69,7 @@ class TodoBlocksContainer extends Component {
 TodoBlocksContainer.propTypes = {
     currentBlockId: PropTypes.string,
     blocks: PropTypes.array.isRequired,
-    closedTodoBlocks: PropTypes.array.isRequired,
+    closedTodoBlocks: PropTypes.array,
     deleteTodoBlock: PropTypes.func.isRequired,
     fetchClosedTodoBlocks: PropTypes.func.isRequired,
     closeTodoBlock: PropTypes.func.isRequired,

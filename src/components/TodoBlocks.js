@@ -22,21 +22,23 @@ const TodoBlocks = ({
         >
             <Dashboard closedTodoBlocks={closedTodoBlocks} />
             <AddTodoBlockButton />
-            {
-                blocks.map(block =>
-                    <TodoBlock
-                        key={block.id}
-                        block={block}
-                        currentBlockId={currentBlockId}
-                        checkIsExpanded={checkIsExpanded}
-                        shouldShowChangeTitleForm={shouldShowChangeTitleForm}
-                        selectBlock={selectBlock}
-                        deleteBlock={deleteBlock}
-                        closeTodoBlock={closeTodoBlock}
-                        toggleChangeTitleForm={toggleChangeTitleForm}
-                    />
-                )
-            }
+            <div className="todoblocks-list">
+                {
+                    blocks.map(block =>
+                        <TodoBlock
+                            key={block.id}
+                            block={block}
+                            currentBlockId={currentBlockId}
+                            checkIsExpanded={checkIsExpanded}
+                            shouldShowChangeTitleForm={shouldShowChangeTitleForm}
+                            selectBlock={selectBlock}
+                            deleteBlock={deleteBlock}
+                            closeTodoBlock={closeTodoBlock}
+                            toggleChangeTitleForm={toggleChangeTitleForm}
+                        />
+                    )
+                }
+            </div>
         </div>
     )
 }

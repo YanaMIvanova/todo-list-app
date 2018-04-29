@@ -218,12 +218,12 @@ export default function* rootSaga () {
     yield all([
         fetchTodoBlocksWatcher(),
         closeTodoBlockWatcher(),
+        deleteTodoBlockWatcher(),
+        saveTodoBlockWatcher(),
+        setTodoBlockTitleWatcher(),
         toggleTodoWatcher(),
         deleteTodoWatcher(),
         saveTodoWatcher(),
-        setTodoBlockTitleWatcher(),
-        deleteTodoBlockWatcher(),
-        saveTodoBlockWatcher(),
         initialSaga(),
     ])
 }

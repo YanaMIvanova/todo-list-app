@@ -69,7 +69,7 @@ export function* saveTodoBlockWorker() {
 
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
-    yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
+    yield call(writeToStorage, "todoBlocks", [newTodoBlock, ...todoBlocksFromStorage])
 }
 
 export function* deleteTodoBlockWorker({ blockId }) {
@@ -147,7 +147,6 @@ export function* closeTodoBlockWorker({ blockId }) {
     const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
 
     const todoBlockToClose = yield select(todoBlockSelector, blockId)
-    console.log(blockId, closedTodoBlocks, closedTodoBlocksIds, todoBlockToClose)
     yield put(removeTodoBlock(blockId))
 
     if(!closedTodoBlocksIds.includes(blockId)) {

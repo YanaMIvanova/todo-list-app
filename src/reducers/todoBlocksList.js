@@ -15,10 +15,10 @@ const todosBlocks = (state = initialState, action) => {
             return {
                 ...state,
                 currentTodoBlockId: action.todoBlock.id,
-                todoBlocksIds: [...state.todoBlocksIds, action.todoBlock.id],
+                todoBlocksIds: [action.todoBlock.id, ...state.todoBlocksIds],
                 todoBlocksById: {
-                    ...state.todoBlocksById,
-                    [action.todoBlock.id]: action.todoBlock
+                    [action.todoBlock.id]: action.todoBlock,
+                    ...state.todoBlocksById
                 }
             }
         case actionTypes.SET_CLOSED_TODO_BLOCKS:

@@ -21,8 +21,8 @@ const TodoBlocks = ({
             className="todoblocks"
         >
             <Dashboard closedTodoBlocks={closedTodoBlocks} />
+            <AddTodoBlockButton />
             {
-                console.log(blocks) ||
                 blocks.map(block =>
                     <TodoBlock
                         key={block.id}
@@ -37,7 +37,6 @@ const TodoBlocks = ({
                     />
                 )
             }
-            <AddTodoBlockButton />
         </div>
     )
 }

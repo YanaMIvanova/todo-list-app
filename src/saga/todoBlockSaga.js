@@ -126,6 +126,10 @@ export function* setTodoBlockTitleWorker({ title, blockId }) {
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
 
+export function* setCurrentTodoBlockIdWorker({ blockId }) {
+    yield call(writeToStorage, "currentTodoBlockId", blockId)
+}
+
 // Watchers
 
 export function* closeTodoBlockWatcher() {
@@ -148,9 +152,14 @@ export function* setTodoBlockTitleWatcher() {
     yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
 }
 
+export function* setCurrentTodoBlockIdWatcher() {
+    yield takeEvery(actionTypes.SET_CURRENT_TODO_BLOCK, setCurrentTodoBlockIdWorker)
+}
+
 export default function* todoBlockSaga () {
     yield all([
         closeTodoBlockWatcher(),
+        setCurrentTodoBlockIdWatcher(),
         fetchTodoBlocksWatcher(),
         saveTodoBlockWatcher(),
         deleteTodoBlockWatcher(),

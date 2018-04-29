@@ -1,14 +1,15 @@
 import { call, put, all } from 'redux-saga/effects'
-import { addTodoBlock } from "../actions/todoBlocks";
+import {addTodoBlock, setCurrentTodoBlock} from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 
 export function* initialSagaWorker() {
     const mostRecentTodoBlockId = yield call(readFromStorage, "mostRecentTodoBlockId")
     const mostRecentTodoId = yield call(readFromStorage, "mostRecentTodoId")
-    const todoBlocks = yield call(readFromStorage, "todoBlocks")
     const closedTodoBlocks = yield call(readFromStorage, "closedTodoBlocks")
     const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
+    const todoBlocks = yield call(readFromStorage, "todoBlocks")
+    const currentTodoBlockId = yield call(readFromStorage, "currentTodoBlockId")
     const todos = yield call(readFromStorage, "todos")
 
     if (!mostRecentTodoBlockId) {
@@ -25,6 +26,12 @@ export function* initialSagaWorker() {
         for (let block of todoBlocks) {
             yield put(addTodoBlock(block))
         }
+    }
+
+    if (!currentTodoBlockId) {
+        yield call(writeToStorage,"currentTodoBlockId", 0)
+    } else {
+        yield put(setCurrentTodoBlock(currentTodoBlockId))
     }
 
     if (!closedTodoBlocks) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { addTodoBlock } from "../actions/todoBlocks";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 const Dashboard = ({ closedTodoBlocks, dispatch }) => (
     <h1

@@ -1,0 +1,79 @@
+.fa-edit {
+    font-size: 20px;
+    color: #bab1ab;
+    transition: 0.150s linear;
+}
+
+.fa-edit:hover {
+    color: black;
+}
+
+.todoblocks {
+    margin: 0 318px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.todoblocks-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.todoblock {
+    border: 1px solid black;
+    padding: 10px;
+    min-width: 400px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.todoblock-header {
+    margin-bottom: 10px;
+}
+
+.todoblock-delete-button {
+    float: right;
+}
+
+.todoblock-change-title-form {
+    margin-bottom: 10px;
+}
+
+.add-todoblock-button {
+    /*position: absolute;*/
+    /*right: 10px;*/
+}
+
+.filter-button {
+    margin-left: 4px;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: unset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    text-align: right;
+    background-color: darkblue;
+    color: white;
+    overflow-x: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.dashboard:hover {
+    width: 300px;
+}
+
+.closed-todo-block {
+    text-align: left;
+    white-space: nowrap;
+    padding-left: 40px;
+}

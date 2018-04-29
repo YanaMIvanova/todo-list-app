@@ -61,6 +61,8 @@ export function* saveTodoBlockWorker() {
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
     yield call(writeToStorage, "todoBlocks", [newTodoBlock, ...todoBlocksFromStorage])
+
+    yield call(writeToStorage, "currentTodoBlockId", `${mostRecentTodoBlockId}`)
 }
 
 export function* deleteTodoBlockWorker({ blockId }) {
@@ -127,7 +129,7 @@ export function* setTodoBlockTitleWorker({ title, blockId }) {
 }
 
 export function* setCurrentTodoBlockIdWorker({ blockId }) {
-    yield call(writeToStorage, "currentTodoBlockId", blockId)
+    yield call(writeToStorage, "currentTodoBlockId", `${blockId}`)
 }
 
 // Watchers

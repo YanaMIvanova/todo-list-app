@@ -41,7 +41,7 @@ export function* initialSagaWorker() {
     if (!currentTodoBlockId) {
         yield call(writeToStorage,"currentTodoBlockId", 0)
     } else {
-        yield put(setCurrentTodoBlock(currentTodoBlockId))
+        yield put(setCurrentTodoBlock(`${currentTodoBlockId}`))
     }
 
     if (!closedTodoBlocks) {

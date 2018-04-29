@@ -10,6 +10,11 @@ export const closeTodoBlock = blockId => ({
     blockId
 })
 
+export const removeTodoBlock = blockId => ({
+    type: actionTypes.REMOVE_TODO_BLOCK,
+    blockId
+})
+
 export const setClosedTodoBlocks = blocks => ({
     type: actionTypes.SET_CLOSED_TODO_BLOCKS,
     blocks

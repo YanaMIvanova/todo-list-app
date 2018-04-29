@@ -1,6 +1,6 @@
 import { takeEvery, call, put, all, select } from 'redux-saga/effects'
 import { actionTypes, visibilityFilters } from "../constants";
-import { addTodoBlock, deleteTodoBlock, setClosedTodoBlocks } from "../actions/todoBlocks";
+import { addTodoBlock, removeTodoBlock, setClosedTodoBlocks } from "../actions/todoBlocks";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
 import { todoBlockSelector } from "../reducers";
@@ -147,7 +147,7 @@ export function* closeTodoBlockWorker({ blockId }) {
     const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
 
     const todoBlockToClose = yield select(todoBlockSelector, blockId)
-    yield put(deleteTodoBlock(blockId))
+    yield put(removeTodoBlock(blockId))
 
     if(!closedTodoBlocksIds.includes(blockId)) {
         yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks, todoBlockToClose])

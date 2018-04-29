@@ -26,6 +26,15 @@ const todosBlocks = (state = initialState, action) => {
                 ...state,
                 closedTodoBlocks: action.blocks
             }
+        case actionTypes.REMOVE_TODO_BLOCK:
+            return {
+                ...state,
+                todoBlocksById: (() => {
+                    const {[action.blockId]: _blockId, ...rest} = state.todoBlocksById
+                    return rest
+                }),
+                todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.blockId)
+            }
         case actionTypes.DELETE_TODO_BLOCK:
             return {
                 ...state,

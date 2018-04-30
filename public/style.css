@@ -77,3 +77,8 @@
     white-space: nowrap;
     padding-left: 40px;
 }
+
+.closed-todo-block.opened {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

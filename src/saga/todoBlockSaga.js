@@ -44,6 +44,8 @@ export function* closeTodoBlockWorker({ blockId }) {
             let currentClosedTodoBlock = closedTodoBlocks[i]
             if (currentClosedTodoBlock.id === blockId) {
                 currentClosedTodoBlock.title = todoBlockToClose.title
+                currentClosedTodoBlock.isClosed = todoBlockToClose.isClosed
+                currentClosedTodoBlock.visibilityFilter = todoBlockToClose.visibilityFilter
                 break
             }
         }

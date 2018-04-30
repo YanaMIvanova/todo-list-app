@@ -131,6 +131,21 @@ export function* setVisibilityFilterWorker({ filter, blockId }) {
     yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
 }
 
+export function* setTodoBlockTitleWorker({ title, blockId }) {
+    const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
+
+    let editedTodoBlocks = []
+
+    for (let block of todoBlocksFromStorage) {
+        if (block.id === blockId) {
+            block.title = title
+        }
+        editedTodoBlocks.push(block)
+    }
+
+    yield call(writeToStorage, "todoBlocks", editedTodoBlocks)
+}
+
 export function* setCurrentTodoBlockIdWorker({ blockId }) {
     yield call(writeToStorage, "currentTodoBlockId", `${blockId}`)
 }
@@ -161,9 +176,14 @@ export function* setVisibilityFilterWatcher() {
     yield takeLatest(actionTypes.SET_VISIBILITY_FILTER, setVisibilityFilterWorker)
 }
 
+export function* setTodoBlockTitleWatcher() {
+    yield takeLatest(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
+}
+
 export default function* todoBlockSaga () {
     yield all([
         closeTodoBlockWatcher(),
+        setTodoBlockTitleWatcher(),
         setCurrentTodoBlockIdWatcher(),
         fetchTodoBlocksWatcher(),
         saveTodoBlockWatcher(),

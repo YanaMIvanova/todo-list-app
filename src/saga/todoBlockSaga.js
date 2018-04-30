@@ -153,19 +153,19 @@ export function* setCurrentTodoBlockIdWorker({ blockId }) {
 // Watchers
 
 export function* closeTodoBlockWatcher() {
-    yield takeEvery(actionTypes.CLOSE_TODO_BLOCK, closeTodoBlockWorker)
+    yield takeLatest(actionTypes.CLOSE_TODO_BLOCK, closeTodoBlockWorker)
 }
 
 export function* fetchTodoBlocksWatcher() {
-    yield takeEvery(actionTypes.FETCH_CLOSED_TODO_BLOCKS, fetchClosedTodoBlocksWorker)
+    yield takeLatest(actionTypes.FETCH_CLOSED_TODO_BLOCKS, fetchClosedTodoBlocksWorker)
 }
 
 export function* saveTodoBlockWatcher() {
-    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
+    yield takeLatest(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
 }
 
 export function* deleteTodoBlockWatcher() {
-    yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockWorker)
+    yield takeLatest(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockWorker)
 }
 
 export function* setCurrentTodoBlockIdWatcher() {

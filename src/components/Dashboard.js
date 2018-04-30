@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { addTodoBlock } from "../actions/todoBlocks";
+import { openTodoBlock } from "../actions/todoBlocks";
 import { connect } from "react-redux";
 
 const Dashboard = ({ closedTodoBlocks, dispatch }) => (
@@ -15,7 +15,7 @@ const Dashboard = ({ closedTodoBlocks, dispatch }) => (
                 <div
                     key={block.id}
                     className="closed-todo-block"
-                    onClick={() => dispatch(addTodoBlock(block))}
+                    onClick={() => dispatch(openTodoBlock(block))}
                 >
                     {block.title}
                 </div>

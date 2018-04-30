@@ -36,6 +36,14 @@ const todosBlocks = (state = initialState, action) => {
                 closedTodoBlocks: state.closedTodoBlocks.filter(closedTodoBlock => closedTodoBlock.id !== action.blockId)
             }
         }
+        case actionTypes.OPEN_TODO_BLOCK: {
+            return {
+                ...state,
+                currentTodoBlockId: action.block.id,
+                todoBlocksById: {...state.todoBlocksById, [action.block.id]: {...action.block, isClosed: false}},
+                closedTodoBlocks: state.closedTodoBlocks.map(closedTodoBlock => ({...closedTodoBlock, isClosed: false}))
+            }
+        }
         case actionTypes.DELETE_TODO_BLOCK: {
             const {[action.blockId]: _blockId, ...rest} = state.todoBlocksById
             const currentTodoBlockIndex = state.todoBlocksIds.indexOf(action.blockId)

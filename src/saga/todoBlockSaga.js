@@ -9,7 +9,8 @@ const { SHOW_ALL } = visibilityFilters
 export const defaultTodoBlock = {
     id: "",
     visibilityFilter: SHOW_ALL,
-    title: "New List"
+    title: "New List",
+    isClosed: false
 }
 
 // Workers
@@ -17,9 +18,22 @@ export const defaultTodoBlock = {
 export function* closeTodoBlockWorker({ blockId }) {
     const closedTodoBlocks = yield call(readFromStorage, "closedTodoBlocks")
     const closedTodoBlocksIds = yield call(readFromStorage, "closedTodoBlocksIds")
+    const todoBlocks = yield call(readFromStorage, "todoBlocks")
+
+    let filteredTodoBlocks = []
+
+    for (let closedBlock of todoBlocks) {
+        if (closedBlock.id !== blockId) {
+            filteredTodoBlocks.push(closedBlock)
+        }
+    }
 
     const todoBlockToClose = yield select(todoBlockSelector, blockId)
+    todoBlockToClose.isClosed = true
+
     yield put(removeTodoBlock(blockId))
+
+    yield call(writeToStorage, "todoBlocks", [...filteredTodoBlocks])
 
     if(!closedTodoBlocksIds.includes(blockId)) {
         yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks, todoBlockToClose])
@@ -114,6 +128,25 @@ export function* deleteTodoBlockWorker({ blockId }) {
     yield call(writeToStorage, "todos", filteredTodos)
 }
 
+export function* openTodoBlockWorker({ block }) {
+    const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
+    const closedTodoBlocksFromStorage = yield call(readFromStorage, "closedTodoBlocks")
+
+    let closedTodoBlocks = []
+
+    for (let closedBlock of closedTodoBlocksFromStorage) {
+        closedBlock.id === block.id
+            ? closedTodoBlocks.push({...closedBlock, isClosed: false})
+            : closedTodoBlocks.push({...closedBlock})
+    }
+
+    console.log(block)
+
+    yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, {...block, isClosed: false}])
+    yield call(writeToStorage, "closedTodoBlocks", closedTodoBlocks)
+    yield put(addTodoBlock(block))
+}
+
 export function* setVisibilityFilterWorker({ filter, blockId }) {
     yield call(delay, 1000)
 
@@ -180,9 +213,14 @@ export function* setTodoBlockTitleWatcher() {
     yield takeLatest(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
 }
 
+export function* openTodoBlockWatcher() {
+    yield takeLatest(actionTypes.OPEN_TODO_BLOCK, openTodoBlockWorker)
+}
+
 export default function* todoBlockSaga () {
     yield all([
         closeTodoBlockWatcher(),
+        openTodoBlockWatcher(),
         setTodoBlockTitleWatcher(),
         setCurrentTodoBlockIdWatcher(),
         fetchTodoBlocksWatcher(),

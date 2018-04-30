@@ -140,8 +140,6 @@ export function* openTodoBlockWorker({ block }) {
             : closedTodoBlocks.push({...closedBlock})
     }
 
-    console.log(block)
-
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, {...block, isClosed: false}])
     yield call(writeToStorage, "closedTodoBlocks", closedTodoBlocks)
     yield put(addTodoBlock(block))

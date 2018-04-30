@@ -1,4 +1,5 @@
-import { takeEvery, call, put, all, select } from 'redux-saga/effects'
+import { takeEvery, takeLatest, call, put, all, select } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
 import { actionTypes, visibilityFilters } from "../constants";
 import { addTodoBlock, removeTodoBlock, setClosedTodoBlocks } from "../actions/todoBlocks";
 import { readFromStorage, writeToStorage } from "../localStorage";
@@ -113,14 +114,16 @@ export function* deleteTodoBlockWorker({ blockId }) {
     yield call(writeToStorage, "todos", filteredTodos)
 }
 
-export function* setTodoBlockTitleWorker({ title, blockId }) {
+export function* setVisibilityFilterWorker({ filter, blockId }) {
+    yield call(delay, 1000)
+
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
     let editedTodoBlocks = []
 
     for (let block of todoBlocksFromStorage) {
         if (block.id === blockId) {
-            block.title = title
+            block.visibilityFilter = filter
         }
         editedTodoBlocks.push(block)
     }
@@ -150,12 +153,12 @@ export function* deleteTodoBlockWatcher() {
     yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockWorker)
 }
 
-export function* setTodoBlockTitleWatcher() {
-    yield takeEvery(actionTypes.SET_TODO_BLOCK_TITLE, setTodoBlockTitleWorker)
-}
-
 export function* setCurrentTodoBlockIdWatcher() {
     yield takeEvery(actionTypes.SET_CURRENT_TODO_BLOCK, setCurrentTodoBlockIdWorker)
+}
+
+export function* setVisibilityFilterWatcher() {
+    yield takeLatest(actionTypes.SET_VISIBILITY_FILTER, setVisibilityFilterWorker)
 }
 
 export default function* todoBlockSaga () {
@@ -165,6 +168,6 @@ export default function* todoBlockSaga () {
         fetchTodoBlocksWatcher(),
         saveTodoBlockWatcher(),
         deleteTodoBlockWatcher(),
-        setTodoBlockTitleWatcher()
+        setVisibilityFilterWatcher()
     ])
 }

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35ac9d-5922-4072-9774-e27eb1b3e3aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/initialSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/initialSaga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,56 +16,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="todoBlocks.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/todoBlocks.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="todoBlocksList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/todoBlocksList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initialSaga.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saga/initialSaga.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="182">
+              <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
               <folding>
-                <element signature="e#0#70#0" expanded="true" />
+                <element signature="e#0#84#0" expanded="true" />
                 <element signature="n#!!block;n#closeTodoBlockWorker#0" />
                 <element signature="n#!!block;n#fetchClosedTodoBlocksWorker#0" />
+                <element signature="n#!!block;n#saveTodoBlockWorker#0" />
                 <element signature="n#!!block;n#deleteTodoBlockWorker#0" />
-                <element signature="n#!!block;n#setTodoBlockTitleWorker#0" />
+                <element signature="n#!!block;n#setCurrentTodoBlockIdWorker#0" />
               </folding>
             </state>
           </provider>
@@ -85,9 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import</find>
-      <find>initial</find>
-      <find>New</find>
       <find>setC</find>
       <find>saveTodoBlockWa</find>
       <find>saveTodoBlockWor</find>
@@ -115,6 +72,9 @@
       <find>mostRecentTodoBlockId</find>
       <find>blockId</find>
       <find>currentTodoBlockId</find>
+      <find>visibilityFilter</find>
+      <find>setV</find>
+      <find>\n\nexport function\* setCurrentTodoBlockIdWatcher\(\) \{\n    yield takeEvery\(actionTypes\.SET_CURRENT_TODO_BLOCK\, setCurrentTodoBlockIdWorker\)\n\}</find>
     </findStrings>
     <dirStrings>
       <dir>C:\projects\tick42\redux\todo-list-app</dir>
@@ -209,6 +169,17 @@
             <path>
               <item name="todo-list-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="todo-list-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="todo-list-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="todo-list-app" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="todo-list-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="todo-list-app" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="redux-saga" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="todo-list-app" type="b2602c69:ProjectViewProjectNode" />
@@ -312,12 +283,12 @@
       <workItem from="1523859433898" duration="85186000" />
       <workItem from="1524518818728" duration="23275000" />
       <workItem from="1524577561338" duration="11000" />
-      <workItem from="1524992669534" duration="31187000" />
+      <workItem from="1524992669534" duration="32643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217576000" />
+    <option name="totallyTimeSpent" value="219032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -378,7 +349,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/actions/index.js" />
     <entry file="file://$PROJECT_DIR$/src/reducers/todoBlockItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -539,13 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/todos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -580,13 +543,6 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/todoBlockItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -639,19 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-            <element signature="n#!!block;n#addTodoWorker#0" />
-            <element signature="n#!!block;n#deleteTodoWorker#0" />
-            <element signature="n#!!block;n#toggleTodoWorker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -673,47 +616,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/todoBlocks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/todoBlocksList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/initialSaga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="286">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/todos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/todoBlocks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/todoBlockItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/todoBlocksList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+            <element signature="n#!!block;n#addTodoWorker#0" />
+            <element signature="n#!!block;n#deleteTodoWorker#0" />
+            <element signature="n#!!block;n#toggleTodoWorker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/redux-saga/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="173" column="16" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="182">
+          <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
           <folding>
-            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#0#84#0" expanded="true" />
             <element signature="n#!!block;n#closeTodoBlockWorker#0" />
             <element signature="n#!!block;n#fetchClosedTodoBlocksWorker#0" />
+            <element signature="n#!!block;n#saveTodoBlockWorker#0" />
             <element signature="n#!!block;n#deleteTodoBlockWorker#0" />
-            <element signature="n#!!block;n#setTodoBlockTitleWorker#0" />
+            <element signature="n#!!block;n#setCurrentTodoBlockIdWorker#0" />
           </folding>
         </state>
       </provider>

@@ -38,6 +38,8 @@ const todosBlocks = (state = initialState, action) => {
         }
         case actionTypes.DELETE_TODO_BLOCK: {
             const {[action.blockId]: _blockId, ...rest} = state.todoBlocksById
+            const currentTodoBlockIndex = state.todoBlocksIds.indexOf(action.blockId)
+            console.log(currentTodoBlockIndex)
 
             return {
                 ...state,
@@ -45,7 +47,9 @@ const todosBlocks = (state = initialState, action) => {
                 currentTodoBlockId: state.currentTodoBlockId === action.blockId
                     ? state.currentTodoBlockId === state.todoBlocksIds[0]
                         ? state.todoBlocksIds[1]
-                        : state.todoBlocksIds[0]
+                        : state.currentTodoBlockId === state.todoBlocksIds[state.todoBlocksIds.length - 1]
+                            ? state.todoBlocksIds[state.todoBlocksIds.length - 2]
+                            : state.todoBlocksIds[currentTodoBlockIndex + 1]
                     : state.currentTodoBlockId,
                 todoBlocksById: rest
             }

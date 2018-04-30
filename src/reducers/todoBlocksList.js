@@ -39,7 +39,6 @@ const todosBlocks = (state = initialState, action) => {
         case actionTypes.DELETE_TODO_BLOCK: {
             const {[action.blockId]: _blockId, ...rest} = state.todoBlocksById
             const currentTodoBlockIndex = state.todoBlocksIds.indexOf(action.blockId)
-            console.log(currentTodoBlockIndex)
 
             return {
                 ...state,

@@ -77,7 +77,7 @@ export function* saveTodoBlockWorker() {
 
     const todoBlocksFromStorage = yield call(readFromStorage, "todoBlocks")
 
-    yield call(writeToStorage, "todoBlocks", [newTodoBlock, ...todoBlocksFromStorage])
+    yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 
     yield call(writeToStorage, "currentTodoBlockId", `${mostRecentTodoBlockId}`)
 }

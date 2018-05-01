@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from "prop-types"
 import { closeTodoBlock, deleteTodoBlock, fetchClosedTodoBlocks, setCurrentTodoBlock } from "../actions/todoBlocks"
 import { blocksSelector, closedTodoBlocksSelector, currentTodoBlockIdSelector } from '../reducers'
-import TodoBlocks from "../components/TodoBlocks";
+import TodoBlocks from "../components/TodoBlocks"
+import AddTodoBlockButton from '../components/AddTodoBlockButton'
+import Dashboard from "../components/Dashboard"
 
 class TodoBlocksContainer extends Component {
     state = {
@@ -52,17 +54,23 @@ class TodoBlocksContainer extends Component {
         const { blocks, currentBlockId, closedTodoBlocks } = this.props
         const { shouldShowChangeTitleForm } = this.state
 
-        return <TodoBlocks
-            closedTodoBlocks={closedTodoBlocks}
-            blocks={blocks}
-            currentBlockId={currentBlockId}
-            checkIsExpanded={this.checkIsExpanded}
-            shouldShowChangeTitleForm={shouldShowChangeTitleForm}
-            selectBlock={this.handleSelectBlock}
-            deleteBlock={this.handleDeleteBlock}
-            closeTodoBlock={this.handleCloseTodoBlock}
-            toggleChangeTitleForm={this.handleToggleChangeTitleForm}
-        />
+        return (
+        <Fragment>
+            <Dashboard closedTodoBlocks={closedTodoBlocks} />
+            <AddTodoBlockButton />
+            <TodoBlocks
+                closedTodoBlocks={closedTodoBlocks}
+                blocks={blocks}
+                currentBlockId={currentBlockId}
+                checkIsExpanded={this.checkIsExpanded}
+                shouldShowChangeTitleForm={shouldShowChangeTitleForm}
+                selectBlock={this.handleSelectBlock}
+                deleteBlock={this.handleDeleteBlock}
+                closeTodoBlock={this.handleCloseTodoBlock}
+                toggleChangeTitleForm={this.handleToggleChangeTitleForm}
+            />
+        </Fragment>
+        )
     }
 }
 

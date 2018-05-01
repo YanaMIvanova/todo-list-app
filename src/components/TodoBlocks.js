@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AddTodoBlockButton from '../components/AddTodoBlockButton'
 import TodoBlock from '../components/TodoBlock'
-import Dashboard from "../components/Dashboard"
 
 const TodoBlocks = ({
         shouldShowChangeTitleForm,
@@ -20,8 +18,6 @@ const TodoBlocks = ({
         <div
             className="todoblocks"
         >
-            <Dashboard closedTodoBlocks={closedTodoBlocks} />
-            <AddTodoBlockButton />
             <div className="todoblocks-list">
                 {
                     blocks.map(block =>

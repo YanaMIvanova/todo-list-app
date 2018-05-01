@@ -10,10 +10,6 @@
 
 .todoblocks {
     margin: 0 318px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .todoblocks-list {
@@ -43,8 +39,7 @@
 }
 
 .add-todoblock-button {
-    /*position: absolute;*/
-    /*right: 10px;*/
+    float: right;
 }
 
 .filter-button {

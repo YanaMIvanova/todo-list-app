@@ -79,7 +79,7 @@ export function* saveTodoBlockWorker() {
 
     yield call(writeToStorage, "todoBlocks", [...todoBlocksFromStorage, newTodoBlock])
 
-    yield call(writeToStorage, "currentTodoBlockId", `${mostRecentTodoBlockId}`)
+    yield call(writeToStorage, "currentTodoBlockId", `${mostRecentTodoBlockId + 1}`)
 }
 
 export function* deleteTodoBlockWorker({ blockId }) {

@@ -41,8 +41,7 @@ const todosBlocks = (state = initialState, action) => {
                 ...state,
                 currentTodoBlockId: action.block.id,
                 todoBlocksById: {...state.todoBlocksById, [action.block.id]: {...action.block, isClosed: false}},
-                closedTodoBlocks: state.closedTodoBlocks.map(closedTodoBlock => console.log(closedTodoBlock)
-                    || ({...closedTodoBlock, isClosed: closedTodoBlock.id === action.block.id
+                closedTodoBlocks: state.closedTodoBlocks.map(closedTodoBlock => ({...closedTodoBlock, isClosed: closedTodoBlock.id === action.block.id
                             ? false
                             : closedTodoBlock.isClosed
                     })

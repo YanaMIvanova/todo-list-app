@@ -35,6 +35,7 @@ const TodoBlock = ({
                         {shouldShowChangeTitleForm
                             ? (
                                 <ChangeTitleFormContainer
+                                    BlockTitle={block.title}
                                     blockId={block.id}
                                     toggleChangeTitleForm={toggleChangeTitleForm}
                                 />

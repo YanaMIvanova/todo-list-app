@@ -7,8 +7,12 @@ const mapDispatchToProps = ( dispatch, ownProps ) => ({
     toggleChangeTitleForm: () => ownProps.toggleChangeTitleForm()
 })
 
+const mapStateToProps = (_state, ownProps)=> ({
+    BlockTitle: ownProps.BlockTitle
+})
+
 const ChangeTitleFormContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(ChangeTitleForm)
 

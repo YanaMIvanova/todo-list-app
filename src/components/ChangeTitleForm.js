@@ -1,34 +1,58 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-const ChangeTitleForm = ({ setTodoBlockTitle, toggleChangeTitleForm }) => {
-    let input = ''
+class ChangeTitleForm extends Component {
+    state = {
+        title: ''
+    }
 
-    return (
-        <form
+    handleTitleChange = (event) => {
+        this.setState({ title: event.target.value })
+    }
+
+    componentDidMount() {
+        const { BlockTitle } = this.props
+
+        this.setState({
+            title: BlockTitle
+        })
+    }
+
+    render() {
+        const {
+            setTodoBlockTitle,
+            toggleChangeTitleForm
+        } = this.props
+
+        const {
+            title
+        } = this.state
+
+        return <form
             className="todoblock-change-title-form"
             onSubmit={e => {
                 e.preventDefault()
-                if (input.value.trim()) {
-                    setTodoBlockTitle(input.value)
+                if (title.trim()) {
+                    setTodoBlockTitle(title)
                     toggleChangeTitleForm()
                 }
-                input.value = ''
             }}
         >
             <input
                 type="text"
-                ref={node => input = node}
+                value={title}
+                onChange={this.handleTitleChange}
                 autoFocus
             />
             <button type="submit">
-                Change Title
+                Apply
             </button>
         </form>
-    )
+    }
 }
 
 ChangeTitleForm.propTypes = {
+    BlockTitle: PropTypes.string.isRequired,
     setTodoBlockTitle: PropTypes.func.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }

@@ -73,6 +73,13 @@
     padding-left: 40px;
 }
 
+.no-closed-todo-block {
+    opacity: 0.5;
+    text-align: left;
+    white-space: nowrap;
+    padding-left: 40px;
+}
+
 .closed-todo-block.opened {
     opacity: 0.5;
     cursor: not-allowed;

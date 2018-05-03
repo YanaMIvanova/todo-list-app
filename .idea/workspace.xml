@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35ac9d-5922-4072-9774-e27eb1b3e3aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoBlockHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoBlockHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/todoBlocksList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/todoBlocksList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saga/todoSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,16 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="todoBlocks.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/todoBlocks.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
@@ -48,8 +34,8 @@
       <file leaf-file-name="todoSaga.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="364">
+              <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
                 <element signature="n#!!block;n#addTodoWorker#0" />
@@ -59,11 +45,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Dashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TodoBlockHeader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+            <state relative-caret-position="260">
+              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="21" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -101,20 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="219">
+              <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -140,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>closeTodoBlock</find>
       <find>setTodoBlockT</find>
       <find>closedTodoBlocks</find>
       <find>writeToStorage</find>
@@ -170,6 +158,7 @@
       <find>currentTodoBlockIdSelector</find>
       <find>classnames</find>
       <find>list</find>
+      <find>closed</find>
     </findStrings>
     <dirStrings>
       <dir>C:\projects\tick42\redux\todo-list-app</dir>
@@ -221,17 +210,17 @@
         <option value="$PROJECT_DIR$/src/actions/todoBlocks.js" />
         <option value="$PROJECT_DIR$/src/saga/initialSaga.js" />
         <option value="$PROJECT_DIR$/src/components/TodoList.js" />
-        <option value="$PROJECT_DIR$/src/components/Dashboard.js" />
         <option value="$PROJECT_DIR$/src/components/TodoBlocks.js" />
         <option value="$PROJECT_DIR$/src/containers/TodoBlocksContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/ChangeTitleFormContainer.js" />
         <option value="$PROJECT_DIR$/src/components/ChangeTitleForm.js" />
         <option value="$PROJECT_DIR$/src/reducers/todoBlocksList.js" />
         <option value="$PROJECT_DIR$/src/saga/todoBlockSaga.js" />
-        <option value="$PROJECT_DIR$/src/saga/todoSaga.js" />
         <option value="$PROJECT_DIR$/src/components/TodoBlockHeader.js" />
         <option value="$PROJECT_DIR$/src/components/TodoBlock.js" />
+        <option value="$PROJECT_DIR$/src/saga/todoSaga.js" />
         <option value="$PROJECT_DIR$/public/style.css" />
+        <option value="$PROJECT_DIR$/src/components/Dashboard.js" />
       </list>
     </option>
   </component>
@@ -368,12 +357,12 @@
       <workItem from="1524518818728" duration="23275000" />
       <workItem from="1524577561338" duration="11000" />
       <workItem from="1524992669534" duration="65607000" />
-      <workItem from="1525349721088" duration="4997000" />
+      <workItem from="1525349721088" duration="6730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256993000" />
+    <option name="totallyTimeSpent" value="258726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -434,13 +423,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/reducers/todoBlocksList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -596,6 +578,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -610,16 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -730,39 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-            <element signature="n#!!block;n#addTodoWorker#0" />
-            <element signature="n#!!block;n#toggleTodoWorker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TodoBlock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/todoBlocksList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -779,6 +721,56 @@
             <element signature="n#!!block;n#setVisibilityFilterWorker#0" />
             <element signature="n#!!block;n#setTodoBlockTitleWorker#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <element signature="n#!!block;n#addTodoWorker#0" />
+            <element signature="n#!!block;n#toggleTodoWorker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="2609" column="8" selection-start-line="2609" selection-start-column="8" selection-end-line="2609" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TodoBlockHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TodoBlock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="23" column="57" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
         </state>
       </provider>
     </entry>

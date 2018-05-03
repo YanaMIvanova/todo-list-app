@@ -12,15 +12,19 @@ const Dashboard = ({ closedTodoBlocks, dispatch }) => (
             ☰
         </div>
         {
-            closedTodoBlocks && closedTodoBlocks.map(block =>
-                <div
-                    key={block.id}
-                    className={classnames('closed-todo-block', {'opened': !block.isClosed})}
-                    onClick={() => block.isClosed ? dispatch(openTodoBlock(block)) : null}
-                >
-                    {block.title}
-                </div>
-            )
+            closedTodoBlocks.length > 0
+                ? closedTodoBlocks.map(block =>
+                    <div
+                        key={block.id}
+                        className={classnames('closed-todo-block', {'opened': !block.isClosed})}
+                        onClick={() => block.isClosed ? dispatch(openTodoBlock(block)) : null}
+                    >
+                        {block.title}
+                    </div>
+                )
+                : <h3 className="no-closed-todo-block">
+                    No closed lists
+                </h3>
         }
     </h1>
 )

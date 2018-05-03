@@ -22,9 +22,11 @@ const Dashboard = ({ closedTodoBlocks, dispatch }) => (
                         {block.title}
                     </div>
                 )
-                : <h3 className="no-closed-todo-block">
-                    No closed lists
-                </h3>
+                : <div>
+                    <h3 className="no-closed-todo-block">
+                        No closed lists
+                    </h3>
+                </div>
         }
     </h1>
 )

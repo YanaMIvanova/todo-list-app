@@ -33,7 +33,7 @@ const todosBlocks = (state = initialState, action) => {
                 ...state,
                 todoBlocksById: rest,
                 todoBlocksIds: state.todoBlocksIds.filter(id => id !== action.blockId),
-                closedTodoBlocks: state.closedTodoBlocks.filter(closedTodoBlock => closedTodoBlock.id !== action.blockId)
+                //closedTodoBlocks: state.closedTodoBlocks.filter(closedTodoBlock => closedTodoBlock.id !== action.blockId)
             }
         }
         case actionTypes.OPEN_TODO_BLOCK: {

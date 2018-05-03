@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 class TodoBlockHeader extends Component {
     render() {
         const {
-            selectTodoBlock,
             title,
             toggleChangeTitleForm,
             closeTodoBlock,
@@ -12,7 +11,6 @@ class TodoBlockHeader extends Component {
         } = this.props
 
         return <div
-            onClick={selectTodoBlock}
             className="todoblock-header"
         >
             {title}
@@ -40,7 +38,6 @@ class TodoBlockHeader extends Component {
 TodoBlockHeader.propTypes = {
     checkIsExpanded: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
-    selectTodoBlock: PropTypes.func.isRequired,
     closeTodoBlock: PropTypes.func.isRequired,
     toggleChangeTitleForm: PropTypes.func.isRequired
 }

@@ -28,12 +28,12 @@ export function* closeTodoBlockWorker({ blockId }) {
         }
     }
 
+    yield call(writeToStorage, "todoBlocks", [...filteredTodoBlocks])
+
     const todoBlockToClose = yield select(todoBlockSelector, blockId)
     todoBlockToClose.isClosed = true
 
     yield put(removeTodoBlock(blockId))
-
-    yield call(writeToStorage, "todoBlocks", [...filteredTodoBlocks])
 
     if(!closedTodoBlocksIds.includes(blockId)) {
         yield call(writeToStorage, "closedTodoBlocks", [...closedTodoBlocks, todoBlockToClose])
@@ -194,7 +194,7 @@ export function* fetchTodoBlocksWatcher() {
 }
 
 export function* saveTodoBlockWatcher() {
-    yield takeLatest(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
+    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
 }
 
 export function* deleteTodoBlockWatcher() {

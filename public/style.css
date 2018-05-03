@@ -15,7 +15,7 @@
 .todoblocks-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .todoblock {
@@ -76,4 +76,8 @@
 .closed-todo-block.opened {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.selected {
+    background-color: lightyellow;
 }

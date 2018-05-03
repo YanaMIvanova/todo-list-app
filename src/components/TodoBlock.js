@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from "prop-types"
+import classnames from 'classnames'
 import Filters from './Filters'
 import TodoBlockHeader from './TodoBlockHeader'
 import DeleteTodoBlockButton from "./DeleteTodoBlockButton"
@@ -18,13 +19,13 @@ const TodoBlock = ({
         toggleChangeTitleForm
     }) => (
         <div
+            onClick={selectBlock(block.id)}
             key={"key-" + block.id}
-            className="todoblock"
+            className={classnames('todoblock', {'selected': block.id === currentBlockId})}
         >
             <TodoBlockHeader
                 checkIsExpanded={checkIsExpanded(block.id)}
                 title={block.title}
-                selectTodoBlock={selectBlock(block.id)}
                 closeTodoBlock={closeTodoBlock(block.id)}
                 toggleChangeTitleForm={toggleChangeTitleForm}
             />

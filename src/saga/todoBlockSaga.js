@@ -211,8 +211,6 @@ export function* deleteTodoBlockWatcher() {
 
         yield call(deleteTodoBlockWorker, action)
     }
-
-    // yield takeEvery(actionTypes.DELETE_TODO_BLOCK, deleteTodoBlockWorker)
 }
 
 export function* setCurrentTodoBlockIdWatcher() {

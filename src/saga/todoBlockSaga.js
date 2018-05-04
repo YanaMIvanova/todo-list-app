@@ -194,10 +194,10 @@ export function* fetchTodoBlocksWatcher() {
 }
 
 export function* saveTodoBlockWatcher() {
-    const requestChan = yield actionChannel(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE)
+    const saveTodoBlockChan = yield actionChannel(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE)
 
     while (true) {
-        yield take(requestChan)
+        yield take(saveTodoBlockChan)
 
         yield call(saveTodoBlockWorker)
     }

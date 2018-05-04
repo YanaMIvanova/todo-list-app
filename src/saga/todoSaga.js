@@ -1,4 +1,4 @@
-import { takeLatest, takeEvery, call, put, all } from 'redux-saga/effects'
+import { actionChannel, takeLatest, takeEvery, call, put, all, take } from 'redux-saga/effects'
 import { actionTypes } from "../constants";
 import { addTodo } from "../actions/todos";
 import { readFromStorage, writeToStorage } from "../localStorage";
@@ -54,7 +54,13 @@ export function* toggleTodoWorker({ id }) {
 // Watchers
 
 export function* saveTodoWatcher() {
-    yield takeEvery(actionTypes.ADD_TODO_TO_STORAGE, addTodoWorker)
+    const requestChan = yield actionChannel(actionTypes.ADD_TODO_TO_STORAGE)
+
+    while (true) {
+        const action = yield take(requestChan)
+
+        yield call(addTodoWorker, action)
+    }
 }
 
 export function* deleteTodoWatcher() {

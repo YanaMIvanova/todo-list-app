@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e35ac9d-5922-4072-9774-e27eb1b3e3aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoBlockSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saga/todoSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/saga/todoSaga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todoBlockSaga.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
+            <state relative-caret-position="254">
+              <caret line="209" column="54" lean-forward="true" selection-start-line="209" selection-start-column="54" selection-end-line="209" selection-end-column="54" />
               <folding>
                 <element signature="e#0#103#0" expanded="true" />
               </folding>
@@ -28,14 +28,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todoSaga.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="todoSaga.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="243">
+              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
               <folding>
                 <element signature="e#0#74#0" expanded="true" />
-                <element signature="n#!!block;n#deleteTodoWorker#0" />
                 <element signature="n#!!block;n#toggleTodoWorker#0" />
               </folding>
             </state>
@@ -162,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/components/Dashboard.js" />
         <option value="$PROJECT_DIR$/../../generator.js" />
         <option value="$PROJECT_DIR$/../../promise.js" />
-        <option value="$PROJECT_DIR$/src/saga/todoSaga.js" />
         <option value="$PROJECT_DIR$/src/saga/todoBlockSaga.js" />
+        <option value="$PROJECT_DIR$/src/saga/todoSaga.js" />
       </list>
     </option>
   </component>
@@ -314,12 +313,12 @@
       <workItem from="1524518818728" duration="23275000" />
       <workItem from="1524577561338" duration="11000" />
       <workItem from="1524992669534" duration="65607000" />
-      <workItem from="1525349721088" duration="18878000" />
+      <workItem from="1525349721088" duration="19073000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270874000" />
+    <option name="totallyTimeSpent" value="271069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -713,24 +712,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
+    <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="254">
+          <caret line="209" column="54" lean-forward="true" selection-start-line="209" selection-start-column="54" selection-end-line="209" selection-end-column="54" />
           <folding>
-            <element signature="e#0#74#0" expanded="true" />
-            <element signature="n#!!block;n#deleteTodoWorker#0" />
-            <element signature="n#!!block;n#toggleTodoWorker#0" />
+            <element signature="e#0#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/saga/todoBlockSaga.js">
+    <entry file="file://$PROJECT_DIR$/src/saga/todoSaga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
+        <state relative-caret-position="243">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
           <folding>
-            <element signature="e#0#103#0" expanded="true" />
+            <element signature="e#0#74#0" expanded="true" />
+            <element signature="n#!!block;n#toggleTodoWorker#0" />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,4 @@
-import { takeEvery, takeLatest, call, put, all, select } from 'redux-saga/effects'
+import { actionChannel, takeEvery, takeLatest, call, take, put, all, select } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import { actionTypes, visibilityFilters } from "../constants";
 import { addTodoBlock, removeTodoBlock, setClosedTodoBlocks } from "../actions/todoBlocks";
@@ -194,7 +194,13 @@ export function* fetchTodoBlocksWatcher() {
 }
 
 export function* saveTodoBlockWatcher() {
-    yield takeEvery(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE, saveTodoBlockWorker)
+    const requestChan = yield actionChannel(actionTypes.SAVE_TODO_BLOCK_TO_STORAGE)
+
+    while (true) {
+        yield take(requestChan)
+
+        yield call(saveTodoBlockWorker)
+    }
 }
 
 export function* deleteTodoBlockWatcher() {

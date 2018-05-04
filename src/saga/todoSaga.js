@@ -54,10 +54,10 @@ export function* toggleTodoWorker({ id }) {
 // Watchers
 
 export function* saveTodoWatcher() {
-    const requestChan = yield actionChannel(actionTypes.ADD_TODO_TO_STORAGE)
+    const addTodoChan = yield actionChannel(actionTypes.ADD_TODO_TO_STORAGE)
 
     while (true) {
-        const action = yield take(requestChan)
+        const action = yield take(addTodoChan)
 
         yield call(addTodoWorker, action)
     }
